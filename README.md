@@ -1,2 +1,6 @@
-# G03-COMF4004-22
-Group 03
+# Group 03
+
+## Team Leader 
+- Name : Rajin Sandira
+- Email : ***REMOVED***
+- Contact : ***REMOVED***
