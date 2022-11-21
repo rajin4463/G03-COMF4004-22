@@ -7,6 +7,7 @@ namespace Mall51
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            Console.WriteLine("test one Commit");
         }
     }
 }
