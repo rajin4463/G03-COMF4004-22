@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Mall 51 | Home page</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="hamburgerNav" class="hamNav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="#">Category-1</a>
+                <a href="#">Category-2</a>
+                <a href="#">Category-3</a>
+                <a href="#">Category-4</a>
+                <a href="#">Category-5</a>
+                <a href="#" style="margin-top: 50%;">Login</a>
+            </div>
+            <div id="menuToggle">
+                <input type="checkbox" class="toggle" onclick="openNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div id="logo"><h1>Mall 51</h1></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search here">
+            </div>
+        </nav>
+    </header>
+
+    <section id="card-display">
+        <ul class="cards">
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-1</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-2</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-3</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-4</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-5</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-6</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-7</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+            <li class="item">
+                <div class="card">
+                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
+                </div>
+                <div class="content">
+                    <h2>Name-8</h2>
+                    <p>Location</p>
+                    <a href="#">View</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <script>
+        function openNav() {
+            document.getElementById("hamburgerNav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("hamburgerNav").style.width = "0";
+        }
+    </script>
+    
+</body>
+</html>
