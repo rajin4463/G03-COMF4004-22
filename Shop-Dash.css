@@ -1,5 +1,5 @@
 body{
-    background-color: #497174;
+    background-color: #D6E4E5;
 }
 label{
     color: #D6E4E5;
@@ -8,10 +8,35 @@ label{
 textarea{
     border-radius: 8px;
 }
-#center{ /* center main div arear */
+#center{ /* center main div area */
     display: flex;
     justify-content: center;
     padding: 2%;
+}
+/* #wrapper{
+    flex-direction: column;
+} */
+.headSec{
+    display: grid;
+    grid-template-columns: 25% 73%;
+    gap: 5px;
+} 
+.headSec > div {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    text-align: center;
+    padding: 20px 0;
+  }
+#heading{
+    font-weight: bold;
+    font-size: 30px;
+    color:#497174;
+    text-align: right;
+}
+#dropDown:checked + img{
+    color: #EB6440;
+}
+#dropDown{
+    display: none;
 }
 #background{ /*center div color*/
     background-color: #344f51;
