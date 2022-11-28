@@ -17,7 +17,8 @@ textarea{
     background-color: #334e50;
     border-radius: 10px;
     width: 350px;
-    height: 650px;
+    height: auto;
+    padding-bottom: 3%;
     box-shadow: black 2px 2px 2px 2px;
 }
 #name{
@@ -44,6 +45,13 @@ textarea{
     display: inline-block;
     font-size: 16px;
 }
+#product_catogories{
+    border-style:solid;
+    border-radius: 10px;
+    border-color: #EFF5F5;
+    border-width: 2.5px;
+    width: 300px;
+}
 /* center placeholders in textarear */
 ::-webkit-input-placeholder {
     text-align: center;
@@ -59,4 +67,34 @@ textarea{
 }
 :-ms-input-placeholder {
     text-align: center;
+}
+#subButtons{
+    text-align: right;
+}
+#save{
+    margin-right: 4%;
+    background-color: #EB6440; 
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: black 2px 2px 2px 2px;
+}
+#cancle{
+    margin-right: 4%;
+    background-color: #EB6440; 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: black 2px 2px 2px 2px;
 }
