@@ -11,20 +11,20 @@ textarea{
 #center{ /* center main div area */
     display: flex;
     justify-content: center;
-    padding: 2%;
+    align-items: center;
+    /* padding: 2%; */
 }
 /* #wrapper{
     flex-direction: column;
 } */
 .headSec{
     display: grid;
-    grid-template-columns: 25% 73%;
-    gap: 5px;
+    grid-template-columns: auto 73%;
+    grid-template-rows: auto auto;
 } 
 .headSec > div {
     /* background-color: rgba(255, 255, 255, 0.8); */
-    text-align: center;
-    padding: 20px 0;
+    padding: 20px 0px;
   }
 #heading{
     font-weight: bold;
@@ -32,11 +32,52 @@ textarea{
     color:#497174;
     text-align: right;
 }
-#dropDown:checked + img{
-    color: #EB6440;
+.menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    /* border: 5px solid #EB6440; */
 }
-#dropDown{
-    display: none;
+.menu_btn{
+    width: 50px;
+    height: 6px;
+    background: #497174;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(235, 100, 64, .2);
+    transition: all .5s ease-in-out;
+}
+.menu_btn::before,
+.menu_btn::after {
+    content:'';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: #497174;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(235, 100, 64, .2);
+    transition: all .5s ease-in-out;
+}
+.menu_btn::before{
+    transform: translateY(-16px);
+}
+.menu_btn::after{
+    transform: translateY(16px);
+}
+/* Menu button animation */
+.menu.open .menu_btn{
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+.menu.open .menu_btn::before{
+    transform: rotate(45deg) translate(35px, -35px);
+}
+.menu.open .menu_btn::after{
+    transform: rotate(-45deg) translate(35px, 35px);
 }
 #background{ /*center div color*/
     background-color: #344f51;
@@ -96,23 +137,10 @@ textarea{
 #subButtons{
     text-align: right;
 }
-#save{
+#save, #cancle{
     margin-right: 4%;
     background-color: #EB6440; 
     width: 100px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 10px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    box-shadow: black 2px 2px 2px 2px;
-}
-#cancle{
-    margin-right: 4%;
-    background-color: #EB6440; 
     border: none;
     border-radius: 5px;
     color: white;
