@@ -10,6 +10,8 @@
     --card-button-hover: #eb6440;
     --hamburger-bg: #eb6440;
     --hamburger-txt: #fff;
+    --footer-colour: #497174;
+    --footer-text: #fff;
 
 }
 
@@ -123,6 +125,47 @@ nav {
     font-size: 36px;
     margin-left: 50px;
 }
+/**
+.slideshow {
+    overflow: hidden;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.slides {
+    display: grid;
+    grid-template-rows: repeat(1, 100%);
+    grid-template-columns: repeat(3, 100%);
+    animation: slide 10s infinite;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(0);
+    }
+    30% {
+        transform: translateX(-100%);
+    }
+    50% {
+        transform: translateX(-100%);
+    }
+    55% {
+        transform: translateX(-200%);
+    }
+    75% {
+        transform: translateX(-200%);
+    }
+    80% {
+        transform: translateX(-300%);
+    }
+    100% {
+        transform: translateX(-300%);
+    }
+}
+*/
 
 
 #card-display h2 {
@@ -175,6 +218,14 @@ nav {
 
 .item .content p {
     color: var(--card-p);
+}
+
+footer{
+    margin-top: 150px;
+    text-align: center;
+    background-color: var(--footer-colour);
+    color: var(--footer-text);
+    padding: 10px;
 }
 
 @media only screen and (min-device-width: 481px) {
