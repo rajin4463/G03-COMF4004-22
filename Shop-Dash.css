@@ -1,0 +1,125 @@
+body{
+    background-color: #D6E4E5;
+}
+label{
+    color: #D6E4E5;
+    font-size: 25px;
+}
+textarea{
+    border-radius: 8px;
+}
+#center{ /* center main div area */
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
+/* #wrapper{
+    flex-direction: column;
+} */
+.headSec{
+    display: grid;
+    grid-template-columns: 25% 73%;
+    gap: 5px;
+} 
+.headSec > div {
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    text-align: center;
+    padding: 20px 0;
+  }
+#heading{
+    font-weight: bold;
+    font-size: 30px;
+    color:#497174;
+    text-align: right;
+}
+#dropDown:checked + img{
+    color: #EB6440;
+}
+#dropDown{
+    display: none;
+}
+#background{ /*center div color*/
+    background-color: #344f51;
+    border-radius: 10px;
+    width: 350px;
+    height: auto;
+    padding-bottom: 3%;
+    box-shadow: black 2px 2px 2px 2px;
+}
+#name{
+    width: 250px;
+    height: 40px;
+}
+#description{
+    width: 250px;
+    height: 180px;
+    border-radius: 8px;
+}
+#tags{
+    width: 250px;
+    height: 60px;
+}
+#tag_add{
+    background-color: #EB6440; 
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+#product_catogories{
+    border-style:solid;
+    border-radius: 10px;
+    border-color: #EFF5F5;
+    border-width: 2.5px;
+    width: 300px;
+}
+/* center placeholders in textarear */
+::-webkit-input-placeholder {
+    text-align: center;
+}
+:-moz-placeholder {
+    /* Firefox 18- */
+    text-align: center;
+}
+::-moz-placeholder {
+    color: #497174;
+    /* Firefox 19+ */
+    text-align: center;
+}
+:-ms-input-placeholder {
+    text-align: center;
+}
+#subButtons{
+    text-align: right;
+}
+#save{
+    margin-right: 4%;
+    background-color: #EB6440; 
+    width: 100px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: black 2px 2px 2px 2px;
+}
+#cancle{
+    margin-right: 4%;
+    background-color: #EB6440; 
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: black 2px 2px 2px 2px;
+}
