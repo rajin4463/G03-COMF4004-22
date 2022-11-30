@@ -18,7 +18,7 @@
 body {
     margin: 0;
 }
-
+/** Navigation Bar */
 nav {
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ nav {
     margin-left: 50px;
     outline: none;
 }
-
+/** Hamburger Menu */
 #menuToggle {
     display: block;
     position: relative;
@@ -125,49 +125,40 @@ nav {
     font-size: 36px;
     margin-left: 50px;
 }
-/**
+/** Slideshow */
+.slide {display: none;}
+.slide img {vertical-align: middle;}
+
 .slideshow {
-    overflow: hidden;
-    border-radius: 8px;
-    margin-top: 15px;
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
 }
 
-.slides {
-    display: grid;
-    grid-template-rows: repeat(1, 100%);
-    grid-template-columns: repeat(3, 100%);
-    animation: slide 10s infinite;
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active {
+    background-color: #717171;
 }
 
-@keyframes slide {
-    0% {
-        transform: translateX(0);
-    }
-    25% {
-        transform: translateX(0);
-    }
-    30% {
-        transform: translateX(-100%);
-    }
-    50% {
-        transform: translateX(-100%);
-    }
-    55% {
-        transform: translateX(-200%);
-    }
-    75% {
-        transform: translateX(-200%);
-    }
-    80% {
-        transform: translateX(-300%);
-    }
-    100% {
-        transform: translateX(-300%);
-    }
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
-*/
-
-
+  
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+/** Cards */
 #card-display h2 {
     color: var(--nav-text);
     text-decoration: none;

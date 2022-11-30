@@ -31,15 +31,23 @@
             </div>
         </nav>
     </header>
-    <!-- 
-    <section class="slideshow">
-        <div class="slides">
-            <img src="./img/redcharlie-LQK8R7wjv4w-unsplash.jpg" alt="" style="width: 100%; height: 500px;">
-            <img src="./img/saud-edum-8jMZzQKduUE-unsplash.jpg" alt="" style="width: 100%; height: 500px;">
-            <img src="./img/sebastien-gabriel--IMlv9Jlb24-unsplash.jpg" alt="" style="width: 100%; height: 500px;">
+    <div class="slideshow">
+        <div class="slide fade">
+            <img src="./img/redcharlie-LQK8R7wjv4w-unsplash.jpg" style="width: 100%; height: auto;">
         </div>
-    </section>
-    -->
+        <div class="slide fade">
+            <img src="./img/saud-edum-8jMZzQKduUE-unsplash.jpg" style="width: 100%; height: auto;">
+        </div>
+        <div class="slide fade">
+            <img src="./img/sebastien-gabriel--IMlv9Jlb24-unsplash.jpg" style="width: 100%; height: auto;">
+        </div>
+    </div>
+    <br>
+    <div style="text-align: center;">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
     <section id="card-display">
         <ul class="cards">
             <li class="item">
@@ -136,6 +144,26 @@
 
         function closeNav() {
             document.getElementById("hamburgerNav").style.width = "0";
+        }
+
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}    
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
         }
     </script>
     
