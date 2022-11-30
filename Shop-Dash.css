@@ -33,7 +33,7 @@ textarea{
     color:#497174;
     text-align: right;
 }
-.menu{
+/* .menu{
     position: relative;
     display: flex;
     justify-content: center;
@@ -41,7 +41,6 @@ textarea{
     width: 80px;
     cursor: pointer;
     transition: all .5s ease-in-out;
-    /* border: 5px solid #EB6440; */
 }
 .menu_btn{
     width: 50px;
@@ -68,7 +67,7 @@ textarea{
 .menu_btn::after{
     transform: translateY(16px);
 }
-/* Menu button animation */
+/* Menu button animation *//*
 .menu.open .menu_btn{
     transform: translateX(-50px);
     background: transparent;
@@ -79,7 +78,7 @@ textarea{
 }
 .menu.open .menu_btn::after{
     transform: rotate(-45deg) translate(35px, 35px);
-}
+} */
 #background{ /*center div color*/
     background-color: #344f51;
     border-radius: 10px;
@@ -163,7 +162,7 @@ textarea{
 }
 @media all and (min-width: 968px) {
     #background{
-        width: 650px;
+        width: 550px;
         transition: all .5s ease-in-out;
     }
     #formCent{
