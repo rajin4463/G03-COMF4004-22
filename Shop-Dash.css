@@ -14,9 +14,10 @@ textarea{
     align-items: center;
     /* padding: 2%; */
 }
-/* #wrapper{
-    flex-direction: column;
-} */
+#formCent{
+    padding: 2%;
+    text-align: center;
+}
 .headSec{
     display: grid;
     grid-template-columns: auto 73%;
@@ -32,7 +33,7 @@ textarea{
     color:#497174;
     text-align: right;
 }
-.menu{
+/* .menu{
     position: relative;
     display: flex;
     justify-content: center;
@@ -40,7 +41,6 @@ textarea{
     width: 80px;
     cursor: pointer;
     transition: all .5s ease-in-out;
-    /* border: 5px solid #EB6440; */
 }
 .menu_btn{
     width: 50px;
@@ -67,7 +67,7 @@ textarea{
 .menu_btn::after{
     transform: translateY(16px);
 }
-/* Menu button animation */
+/* Menu button animation *//*
 .menu.open .menu_btn{
     transform: translateX(-50px);
     background: transparent;
@@ -78,7 +78,7 @@ textarea{
 }
 .menu.open .menu_btn::after{
     transform: rotate(-45deg) translate(35px, 35px);
-}
+} */
 #background{ /*center div color*/
     background-color: #344f51;
     border-radius: 10px;
@@ -86,19 +86,25 @@ textarea{
     height: auto;
     padding-bottom: 3%;
     box-shadow: black 2px 2px 2px 2px;
+    transition: all .5s ease-in-out;
 }
 #name{
     width: 250px;
     height: 40px;
+    transition: all .5s ease-in-out;
 }
 #description{
+    background-color: #D6E4E5;
     width: 250px;
     height: 180px;
     border-radius: 8px;
+    transition: all .5s ease-in-out;
 }
 #tags{
+    background-color: #D6E4E5;
     width: 250px;
     height: 60px;
+    transition: all .5s ease-in-out;
 }
 #tag_add{
     background-color: #EB6440; 
@@ -110,6 +116,7 @@ textarea{
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    transition: all .5s ease-in-out;
 }
 #product_catogories{
     border-style:solid;
@@ -117,6 +124,8 @@ textarea{
     border-color: #EFF5F5;
     border-width: 2.5px;
     width: 300px;
+    margin: 0 auto;
+    transition: all .5s ease-in-out;
 }
 /* center placeholders in textarear */
 ::-webkit-input-placeholder {
@@ -150,4 +159,32 @@ textarea{
     display: inline-block;
     font-size: 16px;
     box-shadow: black 2px 2px 2px 2px;
+}
+@media all and (min-width: 968px) {
+    #background{
+        width: 550px;
+        transition: all .5s ease-in-out;
+    }
+    #formCent{
+        text-align: left;
+    }
+    #tags{
+        width: 500px;
+        height: 40px;
+        transition: all .5s ease-in-out;
+    }
+    #tag_add{
+        text-align: center;
+    }
+    #description{
+        width: 500px;
+        height: 60px;
+        transition: all .5s ease-in-out;
+    }
+    #product_catogories{
+        width: 500px;
+        height: auto;
+        margin: 0 0;
+        transition: all .5s ease-in-out;
+    }
 }
