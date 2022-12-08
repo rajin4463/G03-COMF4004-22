@@ -1,8 +1,9 @@
 /* Variables */
 :root {
+    --body-color: #fff;
     --nav-color: #497174;
     --nav-text: #fff;
-    --card-bg: #416f72;
+    --card-bg: #497174;
     --card-h1: #fff;
     --card-p: #fff;
     --card-button-bg: #fff;
@@ -17,6 +18,7 @@
 
 body {
     margin: 0;
+    background: var(--body-color);
 }
 /** Navigation Bar */
 nav {
@@ -125,7 +127,9 @@ nav {
     font-size: 36px;
     margin-left: 50px;
 }
+
 /** Slideshow */
+/** 
 .slide {display: none;}
 .slide img {vertical-align: middle;}
 
@@ -158,9 +162,10 @@ nav {
     from {opacity: .4} 
     to {opacity: 1}
 }
+*/
 /** Cards */
 #card-display h2 {
-    color: var(--nav-text);
+    color: var(--card-h1);
     text-decoration: none;
 }
 
@@ -184,6 +189,7 @@ nav {
 .cards {
     display: grid;
     grid-template-columns: repeat(3, auto);
+    margin-top: 10px;
 }
 
 .item {
