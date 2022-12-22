@@ -173,14 +173,14 @@ nav {
     height: auto;
     width: 300px;
 }
-
+/**
 #card-display a {
     background: var(--card-button-bg);
     color: var(--card-button-txt);
     text-decoration: none;
     padding: 5px;
 }
-
+*/
 #card-display a:hover {
     text-decoration: none;
     color: var(--card-button-hover);
