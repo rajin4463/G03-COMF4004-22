@@ -1,4 +1,3 @@
-const { request, response } = require('express');
 const express = require('express');
 const bodyPraser = require('body-parser')
 const controler = require('./controler');
