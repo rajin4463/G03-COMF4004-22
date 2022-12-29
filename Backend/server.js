@@ -1,7 +1,8 @@
 const { request, response } = require('express');
 const express = require('express');
-const bodyPraser = require('body-parser')
+const bodyPraser = require('body-parser');
 const controler = require('./controler');
+const path = require('path');
 const app = express();
 
 PORT = 3000
@@ -31,3 +32,10 @@ app.post('/add-data', (request,response) =>{
         response.send({"code":404, "action":"Failed!"})
     }
 });
+
+app.get('/home', (req, res) => {
+    const homePage = path.resolve(__dirname, '../Mall51/home.html');
+    res.sendFile(homePage);
+})
+
+// controler.createShop("Adidas", 2075, "Fashion", "2st Floor", false);
