@@ -16,5 +16,5 @@ const shopManSchema = new Schema({
     }
 }, {timestamps: true});
 
-const ShopMan = mongoose.model('shop', shopManSchema);
+const ShopMan = mongoose.model('shopimage', shopManSchema);
 module.exports = ShopMan;

@@ -1,5 +1,6 @@
 require('dotenv').config();
-const Shop = require('./models/shopMan');
+const ShopMan = require('./models/shopImg');
+const Shop = require('./models/shop');
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true)
 
@@ -12,18 +13,27 @@ mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
  })
 
 function add(request){
-    console.log(request);
-    const addres = new Shop({
+    const addres = new ShopMan({
         imageID: request.imgID,
         image: request.img,
         ShopID: request.shID
     });
-
-    addres.save();
+    try{
+        addres.save();
+    }
+    catch(err){
+        console.log(err);
+    }
 }
 
-function find(id){
+let objData;
 
+async function find(id){
+    await Shop.findOne({_id: id})
+        .then(data => {
+            objData = data;
+        })
+    return(objData);
 }
 
 module.exports = {add, find};
