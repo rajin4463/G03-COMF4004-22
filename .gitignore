@@ -1,4 +1,6 @@
 .DS_Store
 Backend/.env
 .env
+.env.sample
+.env.samples
 Backend/node_modules/.DS_Store

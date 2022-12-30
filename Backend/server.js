@@ -1,46 +1,29 @@
 const express = require('express');
 const cors = require('cors');
 const bodyPraser = require('body-parser')
-const controler = require('./controler');
+const shopCont = require('./shop-dash-controller');
 const app = express();
 
 const PORT = 3000
 
 app.use(cors({
-    origin: '*'
-}));  
+    origin: '*',
+    methods: ['POST', 'GET', 'PATCH']
+}));
 
 console.log('Server starting.....');
 
 app.use(bodyPraser.urlencoded({extended: false}));
 app.use(bodyPraser.json());
 
-app.listen(PORT, listining)
-
-function listining(request, response){
-    console.log('Listining....');
-}
+app.listen(PORT)
 
 app.get('/', (request, response) => {
     response.send('<body style = "background-color: rgba(0, 0, 0, 0.82); color:antiquewhite; padding:2%;"><h1> MALL51 API endpoint</h1></body>')
 });
 
-app.post('/add-img', (request,response) =>{
-    try{
-        controler.add(request.body);
-        response.status(200).json({action:"Success!"})
-    }
-    catch(err){
-        console.log(err);
-        response.status(401).json({action:"Failed!"});
-    }
-});
+app.post('/add-img', shopCont.add);
 
-app.get('/get-shop-data/:id', (request,response)=>{
-    response.status(200)
-    controler.find(request.params.id)
-    .then(result => {
-      response.send(result);
-    });
+app.get('/get-shop-data/:id', shopCont.find)
 
-})
+app.patch('/update/:id', shopCont.update)
