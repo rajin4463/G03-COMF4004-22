@@ -1,16 +1,5 @@
-require('dotenv').config();
 const ShopMan = require('./models/shopImg');
 const Shop = require('./models/shop');
-const mongoose = require('mongoose');
-mongoose.set('strictQuery', true)
-
-const dburi = process.env.URI
-mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
- .then((result)=>{
-    console.log('connected to db...');
- }).catch((err)=>{
-    console.log(err);
- })
 
 async function add(req, res){
     const {imgID, img, shID} = req.body

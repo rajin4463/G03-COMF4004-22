@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyPraser = require('body-parser')
 const shopCont = require('./shop-dash-controller');
+const connectDB = require('./dbconnect');
+require('dotenv').config();
 const app = express();
 
 const PORT = 3000
@@ -10,6 +12,17 @@ app.use(cors({
     origin: '*',
     methods: ['POST', 'GET', 'PATCH']
 }));
+
+const start = async () =>{
+    try{
+        await connectDB(process.env.URI)
+    }
+    catch(err){
+        console.log(err);
+    }
+};
+
+start();
 
 console.log('Server starting.....');
 
