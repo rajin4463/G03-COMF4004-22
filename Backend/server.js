@@ -1,9 +1,21 @@
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, './database.env')});
+const mongoose = require('mongoose');
 const { request, response } = require('express');
 const express = require('express');
 const bodyPraser = require('body-parser');
-const controler = require('./controler');
-const path = require('path');
+const homeRouter = require('./routes/homeRouter');
 const app = express();
+
+// Connection to the database
+mongoose.set('strictQuery', true)
+const dburi = process.env.URI
+mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
+ .then((result)=>{
+    console.log('connected to db...');
+}).catch((err)=>{
+    console.log(err);
+})
 
 PORT = 3000
 
@@ -12,16 +24,19 @@ console.log('Server starting.....');
 app.use(bodyPraser.urlencoded({extended: false}));
 app.use(bodyPraser.json());
 
+app.use('/', homeRouter);
+
 app.listen(PORT, listining)
 
 function listining(request, response){
     console.log('Listining....');
 }
-
+/*
 app.get('/', (request, response) => {
     response.send('<body style = "background-color: rgba(0, 0, 0, 0.82); color:antiquewhite; padding:2%;"><h1> MALL51 API endpoint</h1></body>')
 });
-
+*/
+/*
 app.post('/add-data', (request,response) =>{
     try{
         controler.add(request.body);
@@ -32,10 +47,17 @@ app.post('/add-data', (request,response) =>{
         response.send({"code":404, "action":"Failed!"})
     }
 });
-
+*/
+/*
 app.get('/home', (req, res) => {
     const homePage = path.resolve(__dirname, '../Mall51/home.html');
     res.sendFile(homePage);
 })
+*/
 
-// controler.createShop("Adidas", 2075, "Fashion", "2st Floor", false);
+// Create a shop
+/*
+const CreateShop = require('./controllers/homeController');
+CreateShop.createShop("Nike", 2065, "Fashion", "1st Floor", true);
+CreateShop.createShop("Gucci", 2165, "Fashion", "3rd Floor", true);
+*/
