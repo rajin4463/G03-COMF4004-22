@@ -1,5 +1,5 @@
-const ShopMan = require('./models/shopImg');
-const Shop = require('./models/shop');
+const ShopMan = require('../models/shopImg');
+const Shop = require('../models/shop');
 
 async function add(req, res){
     const {imgID, img, shID} = req.body
