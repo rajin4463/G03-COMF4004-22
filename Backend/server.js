@@ -5,6 +5,7 @@ const bodyPraser = require('body-parser');
 const connectDB = require('./dbconnect');
 const ShopDashRoutes = require('./routes/shopDashRoute');
 const HomeDashRoutes = require('./routes/homeRouter');
+const AdminDashRoutes = require('./routes/adminDashRouter');
 const app = express();
 
 const PORT = 3000
@@ -38,6 +39,7 @@ app.use(bodyPraser.json());
 //Routes
 app.use('/shopdash', ShopDashRoutes);
 app.use('/home', HomeDashRoutes);
+app.use('/admin', AdminDashRoutes);
 
 //default landing page
 app.get('/', (request, response) => {

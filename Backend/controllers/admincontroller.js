@@ -1,64 +1,50 @@
+const cred = require('../models/credentials');
+const User = require('../models/userDetails');
+const ShopDe = require('../models/Shopdetails');
 
-const bodyParse = require("body-parser");
-const mongoose =require("mongoose");
-mongoose.set('strictQuery', true)
-
-const url='mongodb://127.0.0.1:27017/myapp'
-try{
-  connect(url);
-  console.log('connected to the database');
-}catch(err){
-  console.log(err);
-}
-
-async function connect(url){
-    await mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
-}
-const cred = require('./models/credentials');
-const User = require('./models/userDetails');
-function usrDetails(id, usr, passwd, first, last){
+//user details & user credentials store function
+function usrDetails(req, res){
+    const {id, usr, passwd, first, last} = req.body
     const newCred = new cred({
         ShopID : id,
         UserName: usr,
         Password: passwd
-    })
-    try{
-        newCred.save();
-    }
-    catch(err){
-        console.log(err);
-    }
+    });
     const newUser = new User({
         ShopID : id,
         FirstName : first,
         LastName : last
     })
     try{
+        newCred.save();
         newUser.save();
+        res.send({status: "Success!"})
     }
     catch(err){
         console.log(err);
+        res.send({status: "Failed!"})
     }
-
 }
 
-usrDetails(1234, "ann", "ywwwt", "anne", "gune")
-
-const ShopDe = require('./models/Shopdetails');
-function shopDetails(id, shNm, loc, cate, dis){
+//shop details store function
+function shopDetails(req, res){
+    const {shId, shNm, loc, cat, dis} = req.body
     const newShopDe = new ShopDe({
-        ShopID : id,
+        ShopID : shId,
         ShopName : shNm,
         Location : loc,
-        Category : cate,
+        Category : cat,
         Discounts : dis
     })
     try{
         newShopDe.save();
+        res.send({status: "Success!"})
     }
     catch(err){
         console.log(err);
+        res.send({status: "Failed!"})
     }
 
 }
-shopDetails(1234, "odel", "negombo", "fashion", true)
+
+module.exports = {usrDetails, shopDetails};

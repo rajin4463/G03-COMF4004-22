@@ -16,8 +16,8 @@ Location:{
     require: true
 },
 Categories: [{
-  type: String,
-  required: true
+    type: String,
+    required: true
 }],
 Discounts:{
     type: Boolean,
