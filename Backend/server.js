@@ -24,7 +24,9 @@ console.log('Server starting.....');
 app.use(bodyPraser.urlencoded({extended: false}));
 app.use(bodyPraser.json());
 
+// Routers
 app.use('/', homeRouter);
+app.use('/uploads', homeRouter);
 
 app.listen(PORT, listining)
 
@@ -56,8 +58,12 @@ app.get('/home', (req, res) => {
 */
 
 // Create a shop
-/*
+
 const CreateShop = require('./controllers/homeController');
+/*
 CreateShop.createShop("Nike", 2065, "Fashion", "1st Floor", true);
 CreateShop.createShop("Gucci", 2165, "Fashion", "3rd Floor", true);
+*/
+/*
+CreateShop.shop_img_post(3065, "C:\Users\RAZNAN\Desktop\APIIT\Group Project\G03-COMF4004-22\Backend\controllers\little_hearts.jpg", 111);
 */
