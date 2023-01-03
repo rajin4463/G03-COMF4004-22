@@ -4,6 +4,7 @@ const cors = require('cors');
 const bodyPraser = require('body-parser');
 const connectDB = require('./dbconnect');
 const ShopDashRoutes = require('./routes/shopDashRoute');
+const HomeDashRoutes = require('./routes/homeRouter');
 const app = express();
 
 const PORT = 3000
@@ -36,6 +37,7 @@ app.use(bodyPraser.json());
 
 //Routes
 app.use('/shopdash', ShopDashRoutes);
+app.use('/home', HomeDashRoutes);
 
 //default landing page
 app.get('/', (request, response) => {

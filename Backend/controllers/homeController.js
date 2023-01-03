@@ -1,4 +1,4 @@
-const ShopDetails = require('../models/shop');
+const ShopDetails = require('../models/Shopdetails');
 const ShopImage = require('../models/shopImg');
 const multer = require('multer');
 const fs = require('fs');
