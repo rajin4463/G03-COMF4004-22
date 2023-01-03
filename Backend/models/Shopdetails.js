@@ -15,10 +15,10 @@ Location:{
     type: String,
     require: true
 },
-Category:{
-    type: Array,
-    require: true
-},
+Categories: [{
+  type: String,
+  required: true
+}],
 Discounts:{
     type: Boolean,
     require: true
