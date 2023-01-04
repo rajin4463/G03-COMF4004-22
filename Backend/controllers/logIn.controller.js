@@ -22,7 +22,7 @@ mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 
-//SHOP MANAGER LOGIN 
+//ADMIN MANAGER LOGIN 
 async function AdminLogIn(req, res){
     try {
         const {UserName, Password} = req.body;
@@ -52,7 +52,7 @@ async function AdminLogIn(req, res){
 }
 
 
-//ADMIN LOGIN
+//SHOP MANAGER LOGIN
 async function ShopManLogIn(req, res){
     try {
         const {UserName, Password} = req.body;
