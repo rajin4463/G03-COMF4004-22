@@ -32,9 +32,12 @@ async function AdminLogIn(req, res){
         }
 
         const admin_user = await Credentials.findOne({UserName:UserName});
-    
 
-        if (admin_user && (await compare(Password, admin_user.Password))) {
+        const admin_password = await Credentials.findOne(admin_user.Password);
+        //if (admin_user && (await compare(Password, admin_user.Password)))
+        if(admin_user && (Password == admin_password ))
+        //if (admin_user && (await compare(Password,admin_password)))
+    {
             
         const AD_searchID = ({ShopID: admin_user.ShopID});
         res.send({ShopID: admin_user.ShopID});
