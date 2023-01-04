@@ -3,9 +3,14 @@ const express = require('express');
 const cors = require('cors');
 const bodyPraser = require('body-parser');
 const connectDB = require('./dbconnect');
+
+//modules
 const ShopDashRoutes = require('./routes/shopDashRoute');
 const HomeDashRoutes = require('./routes/homeRouter');
 const AdminDashRoutes = require('./routes/adminDashRouter');
+const LoginDashRoutes = require('./controllers/logIn.controller');
+
+
 const app = express();
 
 const PORT = 3000
@@ -40,8 +45,9 @@ app.use(bodyPraser.json());
 app.use('/shopdash', ShopDashRoutes);
 app.use('/home', HomeDashRoutes);
 app.use('/admin', AdminDashRoutes);
+app.use('/login', LoginDashRoutes);
 
-//default landing page
+//default route/main landing page
 app.get('/', (request, response) => {
     response.send('<body style = "background-color: rgba(0, 0, 0, 0.82); color:antiquewhite; padding:2%;"><h1> MALL51 API endpoint</h1></body>')
 });
