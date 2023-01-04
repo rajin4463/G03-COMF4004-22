@@ -22,7 +22,7 @@ mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 
-//ADMIN MANAGER LOGIN 
+//ADMIN LOGIN 
 async function AdminLogIn(req, res){
     try {
         const {UserName, Password} = req.body;
@@ -32,6 +32,7 @@ async function AdminLogIn(req, res){
         }
 
         const admin_user = await Credentials.findOne({UserName:UserName});
+    
 
         if (admin_user && (await compare(Password, admin_user.Password))) {
             
@@ -39,8 +40,11 @@ async function AdminLogIn(req, res){
         res.send({ShopID: admin_user.ShopID});
         if (AD_searchID == ADMINID){
             //local storage 
-            localStorage.setItem("SHOPID", "9978")
-            localStorage.setItem("Role", "Admin")
+            res.send({
+                "ShopID": AD_searchID,
+                "Role":"Admin"
+            })
+    
         }
         }else{
             return res.status(400).send("Invalid credentials");
@@ -70,8 +74,10 @@ async function ShopManLogIn(req, res){
         console.log(SM_searchID)
 
         //local storage 
-        localStorage.setItem("ShopID", SM_searchID)
-        localStorage.setItem("Role", "ShopMan")
+        res.send({
+            "ShopID":SM_searchID,
+            "Role":"Shop Manager"
+        })
             
 
         }else{
@@ -87,6 +93,5 @@ async function ShopManLogIn(req, res){
 
 //TRIGGER BUTTONS 
 //adminLogIn shopManLogIn 
-
 document.getElementById("adminLogIn").onsubmit = async function() {AdminLogIn()};
 document.getElementById("shopManLogIn").onsubmit = async function() {ShopManLogIn()};
