@@ -2,21 +2,21 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Login form with JavaScript Validation</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="logIn.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<!--CAT-->
 <div class="logo text-center">
-  <h1>Mall51</h1>
+  <h1>MALL51</h1>
 </div>
 <div class="wrapper">
+  <!--SHOP MANAGER LOGIN-->
   <div class="inner-warpper text-center">
-    <h2 class="title">Login to your account</h2>
-    <form action="" id="formvalidate">
+    <h2 class="title">Login to Shop Manager Account</h2>
+    <form action="" id="formvalidate1">
       <div class="input-group">
         <label class="palceholder" for="userName">User Name</label>
         <input class="form-control" name="userName" id="userName" type="text" placeholder="" />
@@ -27,8 +27,8 @@
         <input class="form-control" name="userPassword" id="userPassword" type="password" placeholder="" />
         <span class="lighting"></span>
       </div>
-
-      <button type="submit" id="login">Login</button>
+<!--id="login" => id="shopManLogIn"-->
+      <button type="submit" id="shopManLogIn">Login</button>
       <div class="clearfix supporter">
         <div class="pull-left remember-me">
           <input id="rememberMe" type="checkbox">
@@ -38,6 +38,41 @@
       </div>
     </form>
   </div>
+  <!--<div class="signup-wrapper text-center">
+    <a href="#">Don't have an accout? <span class="text-primary">Create One</span></a>
+  </div>-->
+</div>
+
+
+<div class="wrapper">
+  <!--ADMIN LOGIN-->
+  <div class="inner-warpper text-center">
+    <h2 class="title">Login to Admin Account</h2>
+    <form action="" id="formvalidate2">
+      <div class="input-group">
+        <label class="palceholder" for="userName">User Name</label>
+        <input class="form-control" name="userName" id="userName" type="text" placeholder="" />
+        <span class="lighting"></span>
+      </div>
+      <div class="input-group">
+        <label class="palceholder" for="userPassword">Password</label>
+        <input class="form-control" name="userPassword" id="userPassword" type="password" placeholder="" />
+        <span class="lighting"></span>
+      </div>
+<!--id="login" => id="adminLogIn"-->
+      <button type="submit" id="adminLogIn">Login</button>
+      <div class="clearfix supporter">
+        <div class="pull-left remember-me">
+          <input id="rememberMe" type="checkbox">
+          <label for="rememberMe">Remember Me</label>
+        </div>
+        <a class="forgot pull-right" href="#">Forgot Password?</a>
+      </div>
+    </form>
+  </div>
+  <!--<div class="signup-wrapper text-center">
+    <a href="#">Don't have an accout? <span class="text-primary">Create One</span></a>
+  </div>-->
 </div>
 
 <!-- partial -->
