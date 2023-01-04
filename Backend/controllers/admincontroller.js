@@ -4,16 +4,16 @@ const ShopDe = require('../models/Shopdetails');
 
 //user details & user credentials store function
 function usrDetails(req, res){
-    const {id, usr, passwd, first, last} = req.body
+    const {ShopID, UserName, Password, FirstName, LastName} = req.body
     const newCred = new cred({
-        ShopID : id,
-        UserName: usr,
-        Password: passwd
+        ShopID : ShopID,
+        UserName: UserName,
+        Password: Password
     });
     const newUser = new User({
-        ShopID : id,
-        FirstName : first,
-        LastName : last
+        ShopID : ShopID,
+        FirstName : FirstName,
+        LastName : LastName
     })
     try{
         newCred.save();
@@ -28,13 +28,13 @@ function usrDetails(req, res){
 
 //shop details store function
 function shopDetails(req, res){
-    const {shId, shNm, loc, cat, dis} = req.body
+    const {ShopID, ShopName, Location, Category, Discounts} = req.body
     const newShopDe = new ShopDe({
-        ShopID : shId,
-        ShopName : shNm,
-        Location : loc,
-        Category : cat,
-        Discounts : dis
+        ShopID : ShopID,
+        ShopName : ShopName,
+        Location : Location,
+        Category : Category,
+        Discounts : Discounts
     })
     try{
         newShopDe.save();
