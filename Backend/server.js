@@ -2,20 +2,23 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyPraser = require('body-parser');
+
+//database connection module/Controlers
 const connectDB = require('./dbconnect');
 
-//modules
+//modules/Controllers
 const ShopDashRoutes = require('./routes/shopDashRoute');
 const HomeDashRoutes = require('./routes/homeRouter');
 const AdminDashRoutes = require('./routes/adminDashRouter');
 const LoginDashRoutes = require('./controllers/logIn.controller');
 
-
+//creating a new instance of express
 const app = express();
 
+//defining PORT variable
 const PORT = 3000
 
-//use CORS 
+//set CORS 
 app.use(cors({
     origin: '*',
     methods: ['POST', 'GET', 'PATCH']
@@ -34,14 +37,15 @@ const start = async () =>{
 start();
 
 console.log('Server starting.....');
+
 //listen on PORT
 app.listen(PORT)
 
-//body-praser used for post requests
+//body-praser used for post requests filtering
 app.use(bodyPraser.urlencoded({extended: false}));
 app.use(bodyPraser.json());
 
-//Routes
+//API Routes
 app.use('/shopdash', ShopDashRoutes);
 app.use('/home', HomeDashRoutes);
 app.use('/admin', AdminDashRoutes);
