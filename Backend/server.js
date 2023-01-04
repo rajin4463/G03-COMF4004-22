@@ -10,7 +10,7 @@ const connectDB = require('./dbconnect');
 const ShopDashRoutes = require('./routes/shopDashRoute');
 const HomeDashRoutes = require('./routes/homeRouter');
 const AdminDashRoutes = require('./routes/adminDashRouter');
-const LoginDashRoutes = require('./controllers/logIn.controller');
+const LoginDashRoutes = require('./routes/loginDashRoute');
 
 //creating a new instance of express
 const app = express();
