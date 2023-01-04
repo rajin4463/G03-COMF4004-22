@@ -25,7 +25,11 @@ async function AdminLogIn(req, res){
             const AD_searchID = admin_user.ShopID;
             if (AD_searchID == process.env.ADMINID){
                 //JWT access token generation
-                const accesToken = jwt.sign(admin_user.UserName, process.env.ADMIN_ACCESS_TOKEN)
+                const payload = {
+                    UserName: admin_user.UserName,
+                    exp: Math.floor(Date.now() / 1000) + (60 * 60)
+                };                  
+                const accesToken = jwt.sign(payload, process.env.ADMIN_ACCESS_TOKEN)
                 //local storage 
                 res.send({
                     "access token": accesToken,
@@ -65,7 +69,11 @@ async function ShopManLogIn(req, res){
             const SM_searchID = shopman_user.ShopID;
             if (SM_searchID != process.env.ADMINID){
                 //JWT access token generation
-                const accesToken = jwt.sign(shopman_user.UserName, process.env.MANAGER_ACCESS_TOKEN)
+                const payload = {
+                    UserName: shopman_user.UserName,
+                    exp: Math.floor(Date.now() / 1000) + (60 * 60)
+                };   
+                const accesToken = jwt.sign(payload, process.env.MANAGER_ACCESS_TOKEN)
                 //local storage 
                 res.send({
                     "access token": accesToken,
