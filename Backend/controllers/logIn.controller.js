@@ -23,7 +23,7 @@ mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
 
 
 //SHOP MANAGER LOGIN 
-async function ShopManLogIn(req, res){
+async function AdminLogIn(req, res){
     try {
         const {UserName, Password} = req.body;
 
@@ -31,12 +31,12 @@ async function ShopManLogIn(req, res){
             res.status(400).send("All input required");
         }
 
-        const shopman_user = await Credentials.findOne({UserName:UserName});
+        const admin_user = await Credentials.findOne({UserName:UserName});
 
-        if (shopman_user && (await compare(Password, shopman_user.Password))) {
+        if (shopman_user && (await compare(Password, admin_user.Password))) {
             
-        const AD_searchID = ({ShopID: shopman_user.ShopID});
-        res.send({ShopID: shopman_user.ShopID});
+        const AD_searchID = ({ShopID: admin_user.ShopID});
+        res.send({ShopID: admin_user.ShopID});
         if (AD_searchID == ADMINID){
             //local storage 
             localStorage.setItem("SHOPID", "9978")
@@ -53,7 +53,7 @@ async function ShopManLogIn(req, res){
 
 
 //ADMIN LOGIN
-async function AdminLogIn(req, res){
+async function ShopManLogIn(req, res){
     try {
         const {UserName, Password} = req.body;
 
@@ -61,9 +61,9 @@ async function AdminLogIn(req, res){
             res.status(400).send("All input required");
         }
 
-        const admin_user = await Credentials.findOne({UserName:UserName});
+        const shopman_user = await Credentials.findOne({UserName:UserName});
 
-        if (admin_user && (await compare(Password, admin_user.Password))) {
+        if (shopman_user && (await compare(Password, shopman.Password))) {
             
         const SM_searchID = ({ShopID: shopman_user.ShopID});
         res.send({ShopID: shopman_user.ShopID});
