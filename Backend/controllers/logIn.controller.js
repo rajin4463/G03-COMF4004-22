@@ -1,26 +1,4 @@
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-mongoose.set('strictQuery', true)
-const bodyPraser = require('body-parser');
-
-app.use(bodyPraser.urlencoded({extended: false}));
-app.use(bodyPraser.json());
-
-const path = require('path');
-const Credentials = require('./models/credentials');
-require ('dotenv').config({ path: path.resolve(__dirname, './.env')});
-
-const dburi = process.env.URI
-
-mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
- .then((result)=>{
-    console.log('connected to db...');
- }).catch((err)=>{
-    console.log(err);
-})
-
-
+const Credentials = require('../models/credentials');
 
 //ADMIN LOGIN 
 async function AdminLogIn(req, res){
@@ -91,10 +69,4 @@ async function ShopManLogIn(req, res){
         console.log(err)
     }
 }
-
-
-
-//TRIGGER BUTTONS 
-//adminLogIn shopManLogIn 
-document.getElementById("adminLogIn").onsubmit = async function() {AdminLogIn()};
-document.getElementById("shopManLogIn").onsubmit = async function() {ShopManLogIn()};
+module.exports = {AdminLogIn, ShopManLogIn}
