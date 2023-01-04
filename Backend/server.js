@@ -11,12 +11,13 @@ const ShopDashRoutes = require('./routes/shopDashRoute');
 const HomeDashRoutes = require('./routes/homeRouter');
 const AdminDashRoutes = require('./routes/adminDashRouter');
 const LoginDashRoutes = require('./routes/loginDashRoute');
+const AuthRoute = require('./routes/authRoute');
 
 //creating a new instance of express
 const app = express();
 
 //defining PORT variable
-const PORT = 3000
+const PORT = process.env.PORT
 
 //set CORS 
 app.use(cors({
@@ -50,6 +51,7 @@ app.use('/shopdash', ShopDashRoutes);
 app.use('/home', HomeDashRoutes);
 app.use('/admin', AdminDashRoutes);
 app.use('/login', LoginDashRoutes);
+app.use('/auth', AuthRoute);
 
 //default route/main landing page
 app.get('/', (request, response) => {
