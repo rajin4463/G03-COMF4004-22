@@ -4,7 +4,7 @@ const shopCont = require('../controllers/shop-dash-controller');
 const router = express.Router();
 
 try{
-    router.post('/add-img', shopCont.add);
+    router.patch('/add-img', shopCont.add);
 }
 catch(err){
     console.log(err);

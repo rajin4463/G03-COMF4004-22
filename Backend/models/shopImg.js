@@ -11,10 +11,10 @@ const shopManSchema = new Schema({
         required: true,
     },
     ShopID:{
-        type: String,
+        type: Number,
         required: true
     }
-}, {timestamps: true});
+},{timestamps:true});
 
 const ShopMan = mongoose.model('shopimage', shopManSchema);
 module.exports = ShopMan;

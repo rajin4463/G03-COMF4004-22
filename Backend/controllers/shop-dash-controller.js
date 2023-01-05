@@ -1,16 +1,15 @@
-const ShopMan = require('../models/shopImg');
+const ShopImg = require('../models/shopImg');
 const Shop = require('../models/Shopdetails');
 
 async function add(req, res){
-    const {imgID, img, shID} = req.body
-    const addres = new ShopMan({
-        imageID: imgID,
-        image: img,
-        ShopID: shID
-    });
+    const {ImgID, img, ShID} = req.body;
+    let numID = Number(ShID)
     try{
-        await addres.save();
-        res.send({status: "Success!"})
+        const update = await ShopImg.findOneAndUpdate({ShopID: numID}, {
+            imageID:ImgID,
+            image: img
+        },  { upsert: true, new: true }, )
+        res.send(update)
     }
     catch(err){
         console.log(err);
@@ -50,5 +49,4 @@ async function update(req, res){
         res.send({ status : "data not saved"})
     }
 }
-
 module.exports = {add, find, update}
