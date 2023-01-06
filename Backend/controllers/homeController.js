@@ -4,6 +4,8 @@ const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 
+// Function - Get shop details
+
 exports.shop_details_get = (req, res) => {
     res.send('<body style = "background-color: rgba(0, 0, 0, 0.82); color:antiquewhite; padding:2%;"><h1> MALL51 Home Page</h1></body>');
     ShopDetails.find({}, function(error, details){
@@ -11,7 +13,22 @@ exports.shop_details_get = (req, res) => {
             console.log(error);
         }
         else{
-            console.log({shopDetails: details[0].shopname});
+            console.log({shopDetails: details});
+        }
+    })
+}
+
+// Search Function
+
+exports.shop_search_get = (req, res) => {
+    let query = {shopname: "Gucci"};
+    ShopDetails.find(query, function(error, result){
+        if(error){
+            console.log(error);
+        }
+        else{
+            console.log({ShopName: result[0].shopname, ShopLocation: result[0].location});
+            res.json({ShopName: result[0].shopname, ShopLocation: result[0].location});
         }
     })
 }
@@ -35,6 +52,8 @@ exports.createShop = (shopname, shopID, categories, location, discounts) => {
     });
 }
 
+// Setting up image storage using Multer
+
 let imageStorage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'uploads')
@@ -45,6 +64,8 @@ let imageStorage = multer.diskStorage({
 });
 
 let upload = multer({storage: imageStorage});
+
+// Function - Get shop image
 
 exports.shop_img_get = (req, res) => {
     res.send('<body style = "background-color: rgba(0, 0, 0, 0.82); color:antiquewhite; padding:2%;"><h1> MALL51 Images</h1></body>');
@@ -58,6 +79,8 @@ exports.shop_img_get = (req, res) => {
         }
     })
 }
+
+// Function - Post shop image
 
 exports.shop_img_post = (imageID, image, shopID)  => {
     let obj = {

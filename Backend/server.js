@@ -12,10 +12,15 @@ mongoose.set('strictQuery', true)
 const dburi = process.env.URI
 mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
  .then((result)=>{
-    console.log('connected to db...');
+    console.log('Connected to database!');
 }).catch((err)=>{
     console.log(err);
 })
+
+// Sending the static pages
+
+app.use(express.static("../Mall51"));
+app.use(express.static("img"));
 
 PORT = 3000
 
@@ -26,7 +31,8 @@ app.use(bodyPraser.json());
 
 // Routers
 app.use('/', homeRouter);
-app.use('/uploads', homeRouter);
+app.use('/img', homeRouter);
+app.use('/search', homeRouter);
 
 app.listen(PORT, listining)
 
@@ -50,12 +56,12 @@ app.post('/add-data', (request,response) =>{
     }
 });
 */
-/*
+
 app.get('/home', (req, res) => {
     const homePage = path.resolve(__dirname, '../Mall51/home.html');
     res.sendFile(homePage);
 })
-*/
+
 
 // Create a shop
 
