@@ -21,8 +21,8 @@ exports.shop_details_get = (req, res) => {
 // Search Function
 
 exports.shop_search_get = (req, res) => {
-    let query = {shopname: "Gucci"};
-    ShopDetails.find(query, function(error, result){
+    const {shopName} = req.params;
+    ShopDetails.find({shopname: shopName}, function(error, result){
         if(error){
             console.log(error);
         }

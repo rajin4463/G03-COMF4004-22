@@ -32,7 +32,7 @@ app.use(bodyPraser.json());
 // Routers
 app.use('/', homeRouter);
 app.use('/img', homeRouter);
-app.use('/search', homeRouter);
+app.use('/search/shopName', homeRouter);
 
 app.listen(PORT, listining)
 
