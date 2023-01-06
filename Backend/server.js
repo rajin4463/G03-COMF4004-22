@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const bodyPraser = require('body-parser');
 
 //database connection module/Controlers
 const connectDB = require('./dbconnect');
@@ -43,8 +42,8 @@ console.log('Server starting.....');
 app.listen(PORT)
 
 //body-praser used for post requests filtering
-app.use(bodyPraser.urlencoded({extended: false}));
-app.use(bodyPraser.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 //API Routes
 app.use('/shopdash', ShopDashRoutes);

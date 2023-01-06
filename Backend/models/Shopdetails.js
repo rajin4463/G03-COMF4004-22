@@ -2,28 +2,24 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const shopSchema = new Schema({
-   
-ShopID:{
-    type: Number,
-    require: true
-},
-ShopName:{
-    type: String,
-    require: true
-},
-Location:{
-    type: String,
-    require: true
-},
-Categories: [{
-    type: String,
-    required: true
-}],
-Discounts:{
-    type: Boolean,
-    require: true
-}
-},{timestamps: true});
+    ShopID:{
+        type:Number,
+        required:true
+    },
+    ShopName:{
+        type:String,
+        required: true
+    },
+    Location:{
+        type:String,
+        required: true
+    },
+    Category:[String],
+    Discounts:{
+        type:String,
+        required:true
+    }
+})
 
 const Shop = mongoose.model('Shop',shopSchema);
 module.exports = Shop;

@@ -11,7 +11,7 @@ catch(err){
 }
 
 try{
-    router.post('/shopDetails', admincontroller.shopDetails);
+    router.patch('/shopDetails', admincontroller.shopDetails);
 }
 catch(err){
     console.log(err);

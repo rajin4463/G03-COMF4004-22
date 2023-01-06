@@ -27,17 +27,11 @@ function usrDetails(req, res){
 }
 
 //shop details store function
-function shopDetails(req, res){
-    const {ShopID, ShopName, Location, Category, Discounts} = req.body
-    const newShopDe = new ShopDe({
-        ShopID : ShopID,
-        ShopName : ShopName,
-        Location : Location,
-        Category : Category,
-        Discounts : Discounts
-    })
+async function shopDetails(req, res){
+    const {ShopID, ShopName, Location, Discounts} = req.body;
+    const {Category} = req.body;
     try{
-        newShopDe.save();
+        const Shop = await ShopDe.create({ShopID, ShopName, Location, Category, Discounts})
         res.send({status: "Success!"})
     }
     catch(err){

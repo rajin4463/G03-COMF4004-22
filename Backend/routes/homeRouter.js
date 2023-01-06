@@ -8,4 +8,10 @@ try{
 }catch(err){
     console.log(err);
 }
+
+try{
+    router.get('/img', home_controller.shop_img_get)
+}catch(err){
+    console.log(err);
+}
 module.exports = router;
