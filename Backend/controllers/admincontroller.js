@@ -3,21 +3,11 @@ const User = require('../models/userDetails');
 const ShopDe = require('../models/Shopdetails');
 
 //user details & user credentials store function
-function usrDetails(req, res){
+async function usrDetails(req, res){
     const {ShopID, UserName, Password, FirstName, LastName} = req.body
-    const newCred = new cred({
-        ShopID : ShopID,
-        UserName: UserName,
-        Password: Password
-    });
-    const newUser = new User({
-        ShopID : ShopID,
-        FirstName : FirstName,
-        LastName : LastName
-    })
     try{
-        newCred.save();
-        newUser.save();
+        const newCred = await cred.create({ShopID, UserName, Password})
+        const newUser = await User.create({ShopID, FirstName, LastName})
         res.send({status: "Success!"})
     }
     catch(err){

@@ -37,7 +37,9 @@ async function AdminLogIn(req, res){
                     "Role":"Admin"
                 })
         
-            }
+            }else{
+                return res.status(400).send("Invalid credentials");
+            } 
         }else{
             return res.status(400).send("Invalid credentials");
         }   
@@ -84,7 +86,9 @@ async function ShopManLogIn(req, res){
             }else{
                 return res.status(400).send("Invalid credentials");
             }   
-        } 
+        }else{
+            return res.status(400).send("Invalid credentials");
+        }   
     }
     catch (err) {
         console.log(err)
