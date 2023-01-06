@@ -16,7 +16,7 @@ try{
 }
 
 try{
-    router.get('/search', home_controller.shop_search_get)
+    router.get('/search/:shopName', home_controller.shop_search_get)
 }catch(err){
     console.log(err);
 }

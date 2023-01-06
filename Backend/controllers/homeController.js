@@ -39,8 +39,7 @@ exports.shop_search_get = (req, res) => {
             console.log(error);
         }
         else{
-            console.log({ShopName: result[0].shopname, ShopLocation: result[0].location});
-            res.json({ShopName: result[0].shopname, ShopLocation: result[0].location});
+            res.json({ShopName: result[0].ShopName, ShopLocation: result[0].Location});
         }
     })
 }
