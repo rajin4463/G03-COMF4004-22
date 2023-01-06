@@ -14,4 +14,10 @@ try{
 }catch(err){
     console.log(err);
 }
+
+try{
+    router.get('/search', home_controller.shop_search_get)
+}catch(err){
+    console.log(err);
+}
 module.exports = router;

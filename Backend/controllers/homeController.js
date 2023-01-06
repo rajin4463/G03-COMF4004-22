@@ -29,3 +29,18 @@ exports.shop_img_get = (req, res) => {
         console.log(err);
     }
 }
+
+// Search Function
+
+exports.shop_search_get = (req, res) => {
+    const {shopName} = req.params;
+    ShopDetails.find({shopname: shopName}, function(error, result){
+        if(error){
+            console.log(error);
+        }
+        else{
+            console.log({ShopName: result[0].shopname, ShopLocation: result[0].location});
+            res.json({ShopName: result[0].shopname, ShopLocation: result[0].location});
+        }
+    })
+}
