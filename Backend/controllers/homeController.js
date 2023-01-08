@@ -34,12 +34,24 @@ exports.shop_img_get = (req, res) => {
 
 exports.shop_search_get = (req, res) => {
     const {shopName} = req.params;
-    ShopDetails.find({shopname: shopName}, function(error, result){
+    ShopDetails.findOne({shopname: shopName}, function(error, result){
         if(error){
             console.log(error);
         }
         else{
-            res.json({ShopName: result[0].ShopName, ShopLocation: result[0].Location});
+            res.status(200).json({ShopName: result.ShopName, ShopLocation: result.Location});
+        }
+    })
+}
+
+exports.shop_category_search = (req, res) => {
+    const {category} = req.params;
+    ShopDetails.findOne({Categories: category}, function(error, result){
+        if(error){
+            console.log(error);
+        }
+        else{
+            res.json({ShopName: result.ShopName, ShopLocation: result.Location})
         }
     })
 }

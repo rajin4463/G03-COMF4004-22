@@ -20,4 +20,12 @@ try{
 }catch(err){
     console.log(err);
 }
+
+try{
+    router.get('/search/:category', home_controller.shop_category_search)
+}
+catch(error){
+    console.log(error);
+}
+
 module.exports = router;
