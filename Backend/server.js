@@ -17,22 +17,16 @@ mongoose.connect(dburi, {useNewUrlParser: true, useUnifiedTopology: true})
     console.log(err);
 })
 
-// Sending the static pages
-
-app.use(express.static("../Mall51"));
-app.use(express.static("img"));
-
 PORT = 3000
 
 console.log('Server starting.....');
 
-app.use(bodyPraser.urlencoded({extended: false}));
 app.use(bodyPraser.json());
+app.use(bodyPraser.urlencoded({extended: true}));
+
 
 // Routers
 app.use('/', homeRouter);
-app.use('/img', homeRouter);
-app.use('/search/shopName', homeRouter);
 
 app.listen(PORT, listining)
 
@@ -57,18 +51,18 @@ app.post('/add-data', (request,response) =>{
 });
 */
 
-app.get('/home', (req, res) => {
-    const homePage = path.resolve(__dirname, '../Mall51/home.html');
-    res.sendFile(homePage);
-})
+// app.get('/home', (req, res) => {
+//     const homePage = path.resolve(__dirname, '../Mall51/home.html');
+//     res.sendFile(homePage);
+// })
 
 
 // Create a shop
 
 const CreateShop = require('./controllers/homeController');
 /*
-CreateShop.createShop("Nike", 2065, "Fashion", "1st Floor", true);
-CreateShop.createShop("Gucci", 2165, "Fashion", "3rd Floor", true);
+CreateShop.createShop("Rolex", 2065, ["Fashion", "Luxury", "Watch"], "1st Floor", true);
+CreateShop.createShop("ASUS", 2165, ["Gaming", "Technology"], "3rd Floor", true);
 */
 /*
 CreateShop.shop_img_post(3065, "C:\Users\RAZNAN\Desktop\APIIT\Group Project\G03-COMF4004-22\Backend\controllers\little_hearts.jpg", 111);
