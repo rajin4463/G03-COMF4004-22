@@ -73,3 +73,62 @@
 
 }(jQuery);
 
+
+// SHOP MANAGER SUBMIT BUTTON EVENT 
+// Get the submit button
+const submitBtn1 = document.getElementById("shopManLogIn");
+
+// Add an event listener to the submit button
+submitBtn1.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Get the username and password from the input fields
+    const username = document.getElementById("shopm_userName").value;
+    const password = document.getElementById("shopm_userPassword").value;
+
+    // Send the login request
+    axios.post('/login', {
+        username: username,
+        password: password
+    })
+    .then(response => {
+        // Store the JWT token in a cookie
+        document.cookie = `token=${response.data["access token"]}; expires=; path=/;HttpOnly;secure`;
+        // Store the ShopID and Role in local storage
+        localStorage.setItem("shopId", response.data.ShopID);
+        localStorage.setItem("role", response.data.Role);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+});
+
+// ADMIN SUBMIT BUTTON EVENT 
+// Get the submit button
+const submitBtn2 = document.getElementById("adminLogIn");
+
+// Add an event listener to the submit button
+submitBtn2.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // Get the username and password from the input fields
+    const username = document.getElementById("admin_userName").value;
+    const password = document.getElementById("admin_UserPassword").value;
+
+    // Send the login request
+    axios.post('/login', {
+        username: username,
+        password: password
+    })
+    .then(response => {
+        // Store the JWT token in a cookie
+        document.cookie = `token=${response.data["access token"]}; expires=; path=/;HttpOnly;secure`;
+        // Store the ShopID and Role in local storage
+        localStorage.setItem("shopId", response.data.ShopID);
+        localStorage.setItem("role", response.data.Role);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+});
+
