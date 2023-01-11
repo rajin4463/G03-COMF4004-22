@@ -27,7 +27,7 @@ exports.shop_details_get = (req, res) => {
 
 // Search Function
 
-exports.shop_search_get = (req, res) => {
+exports.shop_search_get = (req, res) => {   
     const searchType = req.params[0];
     const searchValue = req.query[searchType];
     let Shops = [];
