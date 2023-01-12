@@ -1,9 +1,10 @@
 body{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #D6E4E5;
 }
 section{
     padding: 20px;
-    background-color: #D6E4E5;
+    background-color: #EEEEEE;
     border-radius: 10px;
     margin: 20px;
     color: #497174;
@@ -28,17 +29,17 @@ div{
     margin-right: 20px;
 }
 
-input{
+input, select {
     border: none;
     padding:4px;
     float: right;
-    background-color: #EFF5F5;
+    background-color: #D6E4E5;
     
     
 }
 
 input:hover{
-    background-color: #EEEEEE;
+    background-color: #EFF5F5;
 }
 
 h2{

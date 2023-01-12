@@ -7,35 +7,80 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <header>Admin Portal</header>
-        <section id ="Shop">
-            <h2>New Shop Owner</h2>
-            <form id ="forma">
-                <div>
-                    <label for ="fname">First Name:</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your First Name">
-
-                </div>
-               <div>
-                <label for ="fname">Last Name:</label>
-                <input type="text" id="lname" name="lname" placeholder="Your First Name">
-               </div>
-               <div>
-                <label for = "nshop">Shop No:</label>
-                <input type ="number" id="nshop" name="nshop">
-               </div>
+      <header>Admin Portal</header>
+      <section id ="Shop">
+          <h2>New Shop</h2>
+          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST" action="/admin">
               <div>
-                <label for ="fname">Location:</label>
-                <input type ="text" id="lo" name="lo">
-                
+                  <label for ="fname">Shop Name:</label>
+                  <input type ="text" id="shname" name="shname">
+                </div>
+
+              <div>
+              <label for = "nshop">Shop Id:</label>
+              <input type ="number" id="nshop" name="nshop">
+             </div>
+
+            <div>
+              <label for ="fname">Location:</label>
+              <input type ="text" id="lo" name="lo">
+            </div>
+
+            <div>
+              <label for="Category">Category: </label>
+                  <select name="Category" id="Category">
+                      <option value="-1" selected>Shop Categories</option> <!--i need to colour this grey-->
+                      <option value="1">Option1</option>
+                      <option value="2">Option2</option>
+                      <option value="3">Option3</option>
+                      <option value="4">Option4</option>
+                  </select>
+          </div>
+
+            <h2>Owner Details</h2>
+
+              <div>
+                  <label for ="fname">First Name:</label>
+                  <input type="text" id="fname" name="fname" placeholder="Your First Name">
+
               </div>
-              <input class="sub" type="submit" value="Submit">
-            </form>
-        </section>
+             <div>
+              <label for ="fname">Last Name:</label>
+              <input type="text" id="lname" name="lname" placeholder="Your First Name">
+             </div>
+
+             <div>
+              <label for = "UserName">User Name</label>
+              <input type ="text" id="UserName" name="UserName">
+             </div>
+
+             <div>
+              <label for = "Passwordd">Password</label>
+              <input type ="text" id="Password" name="Password">
+             </div>
+             
+            <input class="sub" type="submit" value="Save" name="get" onclick="getCookies()">
+          </form>
+      </section>
+      
+      <footer>
+
+      </footer>
+      <script src ="main.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script>
+
+        function auth() {
+
+          let token = document.cookie;
+          axios.post('/auth/admin', token)
+          .then((res)=>{
+            
+          })
+
+        }
 
         
-        <footer>
-
-        </footer>
+      </script>
     </body>
 </hlml>
