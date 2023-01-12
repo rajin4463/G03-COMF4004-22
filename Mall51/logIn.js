@@ -1,6 +1,3 @@
-const express = require("express")
-const axios = require("axios")
-
 
 +function($) {
   $('.palceholder').click(function() {
@@ -77,10 +74,12 @@ const axios = require("axios")
 
 }(jQuery);
 
-
+const express = require("express")
+const axios = require("axios")
 
 // SHOP MANAGER SUBMIT BUTTON EVENT 
 // Get the submit button
+
 const submitBtn1 = document.getElementById("shopManLogIn");
 
 // Add an event listener to the submit button
