@@ -1,4 +1,8 @@
-+ function($) {
+const express = require("express")
+const axios = require("axios")
+
+
++function($) {
   $('.palceholder').click(function() {
     $(this).siblings('input').focus();
   });
@@ -74,6 +78,7 @@
 }(jQuery);
 
 
+
 // SHOP MANAGER SUBMIT BUTTON EVENT 
 // Get the submit button
 const submitBtn1 = document.getElementById("shopManLogIn");
@@ -93,7 +98,7 @@ submitBtn1.addEventListener("click", function(event) {
     })
     .then(response => {
         // Store the JWT token in a cookie
-        document.cookie = `token=${response.data["access token"]}; expires=; path=/;HttpOnly;secure`;
+        document.cookie = `token=${response.data["accesToken"]}; expires=; path=/;HttpOnly;secure`;
         // Store the ShopID and Role in local storage
         localStorage.setItem("shopId", response.data.ShopID);
         localStorage.setItem("role", response.data.Role);
@@ -122,7 +127,7 @@ submitBtn2.addEventListener("click", function(event) {
     })
     .then(response => {
         // Store the JWT token in a cookie
-        document.cookie = `token=${response.data["access token"]}; expires=; path=/;HttpOnly;secure`;
+        document.cookie = `token=${response.data["accesToken"]}; expires=; path=/;HttpOnly;secure`;
         // Store the ShopID and Role in local storage
         localStorage.setItem("shopId", response.data.ShopID);
         localStorage.setItem("role", response.data.Role);
