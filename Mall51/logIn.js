@@ -142,10 +142,10 @@ submitBtn2.addEventListener("click", function(event) {
 });
 */
 
-let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
 
 
 
+/*
 function SubmitShopMan() {
   // Make the API call to the backend
   fetch(BASE_URL + "login/shopLogIn")
@@ -178,3 +178,68 @@ function SubmitAdmin() {
 // Attach the function to the submit button
 let submitBtn2 = document.getElementById("adminLogIn");
 submitBtn2.addEventListener("click", SubmitAdmin);
+*/
+
+
+let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
+
+/////////////////////////////////////////////////////////////////////// 
+function shopManSubmit() {
+  // Prepare the data to be sent in the request body
+  const data = {
+    ShopID: AD_searchID,
+    Role: "Shop Manager"
+  };
+  
+  // Make the API call to the backend
+  fetch(BASE_URL + "login/shopLogIn", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Store the data in local storage
+      localStorage.setItem("shopId", data.ShopID);
+      localStorage.setItem("role", data.Role);
+      alert("success");
+    });
+}
+
+// Attach the function to the submit button
+let submitBtn1 = document.getElementById("shopManLogIn");
+submitBtn1.addEventListener("click", shopManSubmit);
+
+
+
+///////////////////////////////////////////////////////////////
+function adminSubmit() {
+  // Prepare the data to be sent in the request body
+  const data = {
+    ShopID: AD_searchID,
+    Role: "Admin"
+  };
+  
+  // Make the API call to the backend
+  fetch(BASE_URL + "login/adminLogIn", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Store the data in local storage
+      localStorage.setItem("shopId", data.ShopID);
+      localStorage.setItem("role", data.Role);
+    });
+}
+
+// Attach the function to the submit button
+let submitBtn2 = document.getElementById("adminLogIn");
+submitBtn2.addEventListener("click", adminSubmit);
+
+
