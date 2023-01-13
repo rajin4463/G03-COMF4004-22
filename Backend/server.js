@@ -17,6 +17,7 @@ const app = express();
 
 //defining PORT variable
 const PORT = process.env.PORT
+console.log(PORT)
 
 //set CORS 
 app.use(cors({
