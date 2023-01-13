@@ -10,7 +10,7 @@
       <header>Admin Portal</header>
       <section id ="Shop">
           <h2>New Shop</h2>
-          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST" action="/admin">
+          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST">
               <div>
                   <label for ="fname">Shop Name:</label>
                   <input type ="text" id="shname" name="shname">
@@ -59,7 +59,7 @@
               <input type ="text" id="Password" name="Password">
              </div>
              
-            <input class="sub" type="submit" value="Save" name="get" onclick="getCookies()">
+            <input class="sub" type="submit" value="Save" name="get">
           </form>
       </section>
       
@@ -69,13 +69,30 @@
       <script src ="main.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script>
-
+       
+        document.addEventListener('load', function(auth) { window.location.replace('/login.html' )})
         function auth() {
+          let tokenCookie = document.cookie;
 
-          let token = document.cookie;
-          axios.post('/auth/admin', token)
-          .then((res)=>{
-            
+          function getTokenFromCookie(name) {
+            let value = "; " + document.cookie;
+            let parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+          }
+
+          let token = getTokenFromCookie("token");
+
+          axios.post('/auth/admin', token )
+          .then((res)=>{ 
+            if (res.data.status === null) {
+              console.log("no toek")
+              window.location.href = "/login.html"
+            }else{
+              console.log("admin")
+
+              (res.data.status === "ok")
+            }
+
           })
 
         }
