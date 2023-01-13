@@ -265,6 +265,7 @@ form1.addEventListener("submit", (event) => {
       if (data.ShopID && data.Role) {
         localStorage.setItem("ShopId", data.ShopID);
         localStorage.setItem("Role", data.Role);
+        localStorage.setItem('Token', data.token);
         // do i have to redirect the user to the admin dashboard???
         window.location = "Shop-Dash.html";
       } else {
@@ -297,6 +298,7 @@ form2.addEventListener("submit", (event) => {
       if (data.ShopID && data.Role) {
         localStorage.setItem("ShopId", data.ShopID);
         localStorage.setItem("Role", data.Role);
+        localStorage.setItem('Token', data.token);
         // redirect the user 
         window.location = "admin.html";
       } else {
