@@ -180,7 +180,7 @@ let submitBtn2 = document.getElementById("adminLogIn");
 submitBtn2.addEventListener("click", SubmitAdmin);
 */
 
-
+/*
 let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
 
 /////////////////////////////////////////////////////////////////////// 
@@ -241,5 +241,69 @@ function adminSubmit() {
 // Attach the function to the submit button
 let submitBtn2 = document.getElementById("adminLogIn");
 submitBtn2.addEventListener("click", adminSubmit);
+*/
+
+let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
+
+/////////////////////////////////////////////////////////////////////
+const form1 = document.getElementById("formvalidate1");
+form1.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const UserName = document.getElementById("shopm_userName").value;
+  const Password = document.getElementById("shopm_userPassword").value;
+  // Make the API call to the backend
+  fetch(BASE_URL + "login/shopLogIn", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ UserName, Password }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response
+      if (data.ShopID && data.Role) {
+        localStorage.setItem("shopId", data.ShopID);
+        localStorage.setItem("role", data.Role);
+        // do i have to redirect the user to the admin dashboard???
+        //window.location = "";
+      } else {
+        alert("Invalid credentials");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 
+/////////////////////////////////////////////////////////////////////
+const form2 = document.getElementById("formvalidate2");
+form2.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const UserName = document.getElementById("admin_userName").value;
+  const Password = document.getElementById("admin_userPassword").value;
+  // Make the API call to the backend
+  fetch(BASE_URL + "login/adminLogIn", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ UserName, Password }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response
+      if (data.ShopID && data.Role) {
+        localStorage.setItem("shopId", data.ShopID);
+        localStorage.setItem("role", data.Role);
+        // redirect the user 
+        //window.location = "";
+      } else {
+        alert("Invalid credentials");
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
