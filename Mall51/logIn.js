@@ -263,10 +263,10 @@ form1.addEventListener("submit", (event) => {
     .then((data) => {
       // Handle the response
       if (data.ShopID && data.Role) {
-        localStorage.setItem("shopId", data.ShopID);
-        localStorage.setItem("role", data.Role);
+        localStorage.setItem("ShopId", data.ShopID);
+        localStorage.setItem("Role", data.Role);
         // do i have to redirect the user to the admin dashboard???
-        //window.location = "";
+        window.location = "Shop-Dash.html";
       } else {
         alert("Invalid credentials");
       }
@@ -295,10 +295,10 @@ form2.addEventListener("submit", (event) => {
     .then((data) => {
       // Handle the response
       if (data.ShopID && data.Role) {
-        localStorage.setItem("shopId", data.ShopID);
-        localStorage.setItem("role", data.Role);
+        localStorage.setItem("ShopId", data.ShopID);
+        localStorage.setItem("Role", data.Role);
         // redirect the user 
-        //window.location = "";
+        window.location = "admin.html";
       } else {
         alert("Invalid credentials");
       }
