@@ -29,7 +29,7 @@ async function AdminLogIn(req, res){
                     UserName: admin_user.UserName,
                     exp: Math.floor(Date.now() / 1000) + (60 * 60)
                 };                  
-                const accesToken = jwt.sign(payload, process.env.MANAGER_ACCESS_TOKEN)
+                const accesToken = jwt.sign(payload, process.env.ADMIN_ACCESS_TOKEN)
                 res.cookie("token", accesToken, {
                     secure: true,
                     // maxAge: // in ms
