@@ -6,7 +6,7 @@
         <title>Mall51- Admin portal</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body onload="auth()">
       <header>Admin Portal</header>
       <section id ="Shop">
           <h2>New Shop</h2>
@@ -69,35 +69,26 @@
       <script src ="main.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
       <script>
-       
-        document.addEventListener('load', function(auth) { window.location.replace('/login.html' )})
         function auth() {
-          let tokenCookie = document.cookie;
+          const baseURL = 'https://sore-narrow-seashore.glitch.me'
+          let token = localStorage.getItem("Token");
+          console.log(token);
 
-          function getTokenFromCookie(name) {
-            let value = "; " + document.cookie;
-            let parts = value.split("; " + name + "=");
-            if (parts.length == 2) return parts.pop().split(";").shift();
-          }
-
-          let token = getTokenFromCookie("token");
-
-          axios.post('/auth/admin', token )
-          .then((res)=>{ 
-            if (res.data.status === null) {
-              console.log("no toek")
-              window.location.href = "/login.html"
-            }else{
-              console.log("admin")
-
-              (res.data.status === "ok")
-            }
-
+          fetch(baseURL + "/auth/admin", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({token}),
           })
-
-        }
-
-        
+          .then((response) => response.json())
+          .then((res)=>{
+            if (res.status === null) {
+              console.log("no toek")
+              window.location.href = "login.html"
+            }
+          })
+        }       
       </script>
     </body>
 </hlml>
