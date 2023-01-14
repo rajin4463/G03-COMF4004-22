@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<hlml>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mall51- Admin portal</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+      <header>Admin Portal</header>
+      <section id ="Shop">
+          <h2>New Shop</h2>
+          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST">
+              <div>
+                  <label for ="fname">Shop Name:</label>
+                  <input type ="text" id="shname" name="shname">
+                </div>
+
+              <div>
+              <label for = "nshop">Shop Id:</label>
+              <input type ="number" id="nshop" name="nshop">
+             </div>
+
+            <div>
+              <label for ="fname">Location:</label>
+              <input type ="text" id="lo" name="lo">
+            </div>
+
+            <div>
+              <label for="Category">Category: </label>
+                  <select name="Category" id="Category">
+                      <option value="-1" selected>Shop Categories</option> <!--i need to colour this grey-->
+                      <option value="1">Option1</option>
+                      <option value="2">Option2</option>
+                      <option value="3">Option3</option>
+                      <option value="4">Option4</option>
+                  </select>
+          </div>
+
+            <h2>Owner Details</h2>
+
+              <div>
+                  <label for ="fname">First Name:</label>
+                  <input type="text" id="fname" name="fname" placeholder="Your First Name">
+
+              </div>
+             <div>
+              <label for ="fname">Last Name:</label>
+              <input type="text" id="lname" name="lname" placeholder="Your First Name">
+             </div>
+
+             <div>
+              <label for = "UserName">User Name</label>
+              <input type ="text" id="UserName" name="UserName">
+             </div>
+
+             <div>
+              <label for = "Passwordd">Password</label>
+              <input type ="text" id="Password" name="Password">
+             </div>
+             
+            <input class="sub" type="submit" value="Save" name="get">
+          </form>
+      </section>
+      
+      <footer>
+
+      </footer>
+      <script src ="main.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script>
+       
+        document.addEventListener('load', function(auth) { window.location.replace('/login.html' )})
+        function auth() {
+          let tokenCookie = document.cookie;
+
+          function getTokenFromCookie(name) {
+            let value = "; " + document.cookie;
+            let parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+          }
+
+          let token = getTokenFromCookie("token");
+
+          axios.post('/auth/admin', token )
+          .then((res)=>{ 
+            if (res.data.status === null) {
+              console.log("no toek")
+              window.location.href = "/login.html"
+            }else{
+              console.log("admin")
+
+              (res.data.status === "ok")
+            }
+
+          })
+
+        }
+
+        
+      </script>
+    </body>
+</hlml>
