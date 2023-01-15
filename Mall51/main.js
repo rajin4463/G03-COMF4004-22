@@ -48,3 +48,38 @@ function validation() {
 
 }
 
+//////////////////////////////////////////////////////////////////
+
+let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
+
+
+const form = document.getElementById("forma");
+
+form.addEventListener("submit", (event)=>{
+    event.preventDefault();
+    const ShopID= document.getElementById("nshop").value;
+    const ShopName = document.getElementById("shname").value;
+    const Location = document.getElementById("lo").value;
+    const Category = document.getElementById("Category").value;
+    const Discounts = document.getElementById("discounts").value;
+    const FirstName = document.getElementById("shname").value;
+    const LastName = document.getElementById("lo").value;
+
+    fetch(BASE_URL + "admin/shopDetails",{
+        method: "POST",
+        body: JSON.stringify({ShopID, ShopName, Location, Category, Discounts }),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+    fetch(BASE_URL + "admin/userDetails",{
+        method: "POST",
+        body: JSON.stringify({ShopID, FirstName, LastName, }),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+
+})
+

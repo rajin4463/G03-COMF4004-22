@@ -10,7 +10,7 @@
       <header>Admin Portal</header>
       <section id ="Shop">
           <h2>New Shop</h2>
-          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST">
+          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST" action="/admin">
               <div>
                   <label for ="fname">Shop Name:</label>
                   <input type ="text" id="shname" name="shname">
@@ -36,6 +36,11 @@
                       <option value="4">Option4</option>
                   </select>
           </div>
+          <div>
+            <label for ="discounts">Discounts:</label>
+            <input type="text" id="discounts" name="discounts" >
+
+        </div>
 
             <h2>Owner Details</h2>
 
@@ -59,7 +64,7 @@
               <input type ="text" id="Password" name="Password">
              </div>
              
-            <input class="sub" type="submit" value="Save" name="get">
+            <input class="sub" type="submit" value="Save" name="get" onclick="submit()">
           </form>
       </section>
       
