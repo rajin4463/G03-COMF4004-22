@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="Shop-Dash.css">
     <title>DashBoard</title>
 </head>
-<body>
+<body onload="auth()">
     <div id="center">
         <div>
             <div class="headSec">
@@ -55,7 +55,6 @@
         function auth() {
           const baseURL = 'https://sore-narrow-seashore.glitch.me'
           let token = localStorage.getItem("Token");
-          console.log(token);
 
           fetch(baseURL + "/auth/shop", {
             method: "POST",
@@ -66,12 +65,9 @@
           })
           .then((response) => response.json())
           .then((res)=>{
-            console.log(res);
             if (res.status === null) {
               console.log("no toek")
               window.location.href = "login.html"
-            }else{
-                console.log(res);
             }
           })
         } 
