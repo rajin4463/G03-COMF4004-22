@@ -29,7 +29,7 @@ exports.shop_details_get = (req, res) => {
         }
         else{
             for(let i = 0; i < details.length; i++){
-                ShopDetailsArray.push({ShopName: details[i].shopname, ShopLocation: details[i].location, Discount: details[i].discounts})
+                ShopDetailsArray.push({ShopName: details[i].ShopName, ShopLocation: details[i].Location, Discount: details[i].Discounts})
             }
             res.json(ShopDetailsArray);
             console.log(ShopDetailsArray);
@@ -44,13 +44,13 @@ exports.shop_search_get = (req, res) => {
     const searchType = req.params[0];
     const searchValue = req.query[searchType];
     let Shops = [];
-    ShopDetails.find({$or:[{shopname: searchValue},{categories: searchValue}]}, function(error, result){
+    ShopDetails.find({$or:[{ShopName: searchValue},{Category: searchValue}]}, function(error, result){
         if(error){
             console.log(error);
         }
         else{
             for(let i = 0; i < result.length; i++){
-                Shops.push({ShopName: result[i].shopname, ShopLocation: result[i].location, Discount: result[i].discounts});  
+                Shops.push({ShopName: result[i].ShopName, ShopLocation: result[i].Location, Discount: result[i].Discounts});  
             }
             res.json(Shops);
             console.log(Shops);
