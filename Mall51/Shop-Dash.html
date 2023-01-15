@@ -1,55 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Shop-Dash.css">
-    <title>DashBoard</title>
-</head>
-<body>
-    <div id="center">
-        <div>
-            <div class="headSec">
-                <div id="navBar">
-                    <div class="menu">
-                        <div class="menu_btn"></div>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="Shop-Dash.css">
+        <title>Dashboard</title>
+    </head>
+    <body>
+        <div class="logo text-center">
+            <h5>Mall 51</h5>
+        </div>
+        <div class="wrapper">
+            <div class="inner-wrapper text-center">
+                <form action="" id="dashboard">
+
+                    <div class="input-class">
+                        <label class="place-holder" for="shopName">Shop Name</label>
+                        <input class="form-control" name="shopName" id="shopName" type="text" placeholder="" />
+                        <span class="lightining"></span>
                     </div>
-                </div>
-                <div id="heading">
-                    MAll51
-                </div>
-            </div>
-            <div id="background">
-                <form>
-                    <section id="formCent">
-                        <label for="name" ><b>Shop Name</b></label><br><br>
-                        <section>
-                            <label for="shopname" id="name">Test Name</label>
-                        </section><br><br>
-                        <label for="description" ><b>Description</b></label><br><br>
-                        <textarea name="description" id="description" placeholder="Description" required></textarea><br><br>
-                        <label for="products"><b>Product Categories</b></label><br><br>
-                        <textarea type="text" name="tags" id="tags" placeholder="Cloths, Beauty"></textarea><br>
-                        <button id="tag_add">Add</button><br><br>
-                        <div id="product_catogories">
-                            <center>
-                                <label for="product"> 
-                                    Items added to product catogories will show up here 
-                                </label>
-                            </center>
-                        </div>
-                        <br><br>
-                        <label for="contact" >Contact number</label><br><br>
-                        <input type="number" name="contact" id="contact" placeholder="0710080380" required>
-                    </section>
-                </form><br>
-                <section id="subButtons">
-                    <button type="submit" id="save">Save</button>
-                    <button type="reset" id="cancle">Cancle</button>
-                </section>
+
+                    <div class="input-class">
+                        <label class="place-holder" for="description">Description</label>
+                        <textarea rows="4" cols="50" name="description" id="description" type="text">Enter description here...</textarea>
+                        <span class="lightining"></span>
+                    </div>
+
+                    <div class="input-class">
+                        <label class="place-holder" for="productCats">Product categories</label>
+                        <input class="form-control" name="productCats" id="productCats" type="text">
+                        <span class="lightining"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="submit" id="save">Add</button>
+                    </div>
+
+                    <div class="input-class">
+                        <label class="place-holder" for="tags">Tags</label>
+                        <input class="form-control" name="tags" id="tags" type="text">
+                        <span class="lightining"></span>
+                    </div>
+
+                    <div class="input-class">
+                        <label class="place-holder" for="discounts">Discount %</label>
+                        <input class="form-control" name="discounts" id="discounts" type="number" min="0" max="100">
+                        <span class="lightining"></span>
+                    </div>
+
+                    <div class="input-class">
+                        <input class="form-control" type="file" id="image" name="image" accept="image/*">
+                        <span class="lightining"></span>
+                    </div>
+
+                    <div class="input-class">
+                        <label class="place-holder" for="contactNo">Contact Number</label>
+                        <input class="form-control" name="contactNo" id="contactNo" type="number" minlength="" max="">
+                        <span class="lightining"></span>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="submit" id="save">Save</button>
+                        <button type="submit" id="cancel">Cancel</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
-    <script src="shopDash.js"></script>
-</body>
+    </body>
 </html>
