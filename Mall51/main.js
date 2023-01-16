@@ -5,9 +5,10 @@ function validation() {
         return false;
     }
 
-    if( document.formy.nshop.value == "" || isNaN( document.formy.nshop.value )) {
+    if( document.formy.nshop.value == "" || isNaN( document.formy.nshop.value ) ||
+            document.formy.nshop.value.length != 4 ) {
             
-            alert( "Please provide an Id." );
+            alert( "Please provide an Id in the format ####." );
             document.myForm.nshop.focus() ;
             return false;
     }
@@ -60,13 +61,15 @@ form.addEventListener("click", async (event)=>{
     const Location = document.getElementById("lo").value;
     const Category = document.getElementById("Category").value;
     const Discounts = false;
-    const FirstName = document.getElementById("shname").value;
-    const LastName = document.getElementById("lo").value;
+    const UserName = document.getElementById("UserName").value;
+    const Password = document.getElementById("Password").value;
+    const FirstName = document.getElementById("fname").value;
+    const LastName = document.getElementById("lname").value;
 
     try {
         const response = await fetch(BASE_URL + "admin/shopDetails",{
             method: "POST",
-            body: JSON.stringify({ShopID, ShopName, Location, Category, Discounts }),
+            body: JSON.stringify({ShopID, ShopName, Location, Category, Discounts, UserName, Password }),
             headers: {
                 "Content-Type": "application/json",
             }
