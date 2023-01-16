@@ -56,6 +56,7 @@ const form = document.getElementById("sub");
 
 form.addEventListener("click", async (event)=>{
     event.preventDefault();
+    const validate = validation();
     const ShopID= document.getElementById("nshop").value;
     const ShopName = document.getElementById("shname").value;
     const Location = document.getElementById("lo").value;
@@ -65,7 +66,8 @@ form.addEventListener("click", async (event)=>{
     const Password = document.getElementById("Password").value;
     const FirstName = document.getElementById("fname").value;
     const LastName = document.getElementById("lname").value;
-
+    
+ if (validate == true){
     try {
         const response = await fetch(BASE_URL + "admin/shopDetails",{
             method: "POST",
@@ -92,12 +94,11 @@ form.addEventListener("click", async (event)=>{
         .then((res)=>{
             if (!res.status == 'Success'){
                 alert("Error");
-            }else{
-                alert("Saved")
             }
         })
     } catch (error) {
         console.error(error);
     }
+}
 
 })
