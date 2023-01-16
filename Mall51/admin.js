@@ -69,7 +69,7 @@ form.addEventListener("click", async (event)=>{
     try {
         const response = await fetch(BASE_URL + "admin/shopDetails",{
             method: "POST",
-            body: JSON.stringify({ShopID, ShopName, Location, Category, Discounts, UserName, Password }),
+            body: JSON.stringify({ShopID, ShopName, Location, Category, Discounts }),
             headers: {
                 "Content-Type": "application/json",
             }
