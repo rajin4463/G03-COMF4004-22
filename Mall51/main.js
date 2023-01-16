@@ -5,10 +5,9 @@ function validation() {
         return false;
     }
 
-    if( document.formy.nshop.value == "" || isNaN( document.formy.nshop.value ) ||
-            document.formy.nshop.value.length != 4 ) {
+    if( document.formy.nshop.value == "" || isNaN( document.formy.nshop.value )) {
             
-            alert( "Please provide an Id in the format ####." );
+            alert( "Please provide an Id." );
             document.myForm.nshop.focus() ;
             return false;
     }
@@ -36,10 +35,9 @@ function validation() {
         return false;
     }
 
-    if( document.formy.ownerid.value == "" || isNaN( document.formy.ownerid.value ) ||
-            document.formy.ownerid.value.length != 4 ) {
+    if( document.formy.ownerid.value == "" || isNaN( document.formy.ownerid.value )) {
             
-            alert( "Please provide an Id in the format ####." );
+            alert( "Please provide an Id." );
             document.myForm.ownerid.focus() ;
             return false;
     }
@@ -55,31 +53,49 @@ let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
 
 const form = document.getElementById("forma");
 
-form.addEventListener("submit", (event)=>{
+form.addEventListener("save", async (event)=>{
     event.preventDefault();
     const ShopID= document.getElementById("nshop").value;
     const ShopName = document.getElementById("shname").value;
     const Location = document.getElementById("lo").value;
     const Category = document.getElementById("Category").value;
-    const Discounts = document.getElementById("discounts").value;
+    const Discounts = false;
     const FirstName = document.getElementById("shname").value;
     const LastName = document.getElementById("lo").value;
 
-    fetch(BASE_URL + "admin/shopDetails",{
-        method: "POST",
-        body: JSON.stringify({ShopID, ShopName, Location, Category, Discounts }),
-        headers: {
-            "Content-Type": "application/json",
-        }
-    })
+    try {
+        const response = await fetch(BASE_URL + "admin/shopDetails",{
+            method: "POST",
+            body: JSON.stringify({ShopID, ShopName, Location, Category, Discounts }),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }).then((response)=> response.json())
+        .then((res)=>{
+            if (!res.status == 'Success'){
+                alert("Error");
+            }else{
+                alert("Saved")
+            }
+        })
+    } catch (error) {
+        console.error(error);
+    }
 
-    fetch(BASE_URL + "admin/userDetails",{
-        method: "POST",
-        body: JSON.stringify({ShopID, FirstName, LastName, }),
-        headers: {
-            "Content-Type": "application/json",
+    try {
+        const response = await fetch(BASE_URL + "admin/userDetails",{
+            method: "POST",
+            body: JSON.stringify({ShopID, FirstName, LastName }),
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(response.statusText);
         }
-    })
+    } catch (error) {
+        console.error(error);
+    }
 
 })
-

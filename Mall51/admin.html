@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-      <header>Admin Portal</header>
+      <!--<header>Admin Portal</header>-->
       <section id ="Shop">
           <h2>New Shop</h2>
-          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST" action="/admin">
+          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST" >
               <div>
                   <label for ="fname">Shop Name:</label>
                   <input type ="text" id="shname" name="shname">
@@ -30,10 +30,9 @@
               <label for="Category">Category: </label>
                   <select name="Category" id="Category">
                       <option value="-1" selected>Shop Categories</option> <!--i need to colour this grey-->
-                      <option value="1">Option1</option>
-                      <option value="2">Option2</option>
-                      <option value="3">Option3</option>
-                      <option value="4">Option4</option>
+                      <option value="1">Fashion</option>
+                      <option value="2">Food</option>
+                      <option value="3">Grocery</option>
                   </select>
           </div>
           <div>
