@@ -31,7 +31,17 @@ function validation() {
         return false;
     }
 
-    
+    let v = document.forms["formy"]["UserName"].value;
+    if (v == ""){
+        alert("Username must be filled out");
+        return false;
+    }
+
+    let r = document.forms["formy"]["Password"].value;
+    if (r == ""){
+        alert("Password must be filled out");
+        return false;
+    }
 
     return (true);
 
@@ -74,7 +84,7 @@ form.addEventListener("click", async (event)=>{
 
         const response2 = await fetch(BASE_URL + "admin/userDetails",{
             method: "POST",
-            body: JSON.stringify({ShopID, FirstName, LastName }),
+            body: JSON.stringify({ShopID, FirstName, LastName, UserName, Password }),
             headers: {
                 "Content-Type": "application/json",
             }
