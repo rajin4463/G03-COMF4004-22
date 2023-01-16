@@ -18,12 +18,7 @@ function validation() {
         alert("location must be filled out");
         return false;
     }
-//--------------------------------------------------------------------------------------------------
-    /*if (document.formy.Category.value == "" || "-1"){
-        alert("Please select a category");                     //error
-        return false;
-    }*/
-//--------------------------------------------------------------------------------------------------
+
     let z = document.forms["formy"]["fname"].value;
     if (z == ""){
         alert("Owner's first name must be filled out");
@@ -36,12 +31,7 @@ function validation() {
         return false;
     }
 
-    if( document.formy.ownerid.value == "" || isNaN( document.formy.ownerid.value )) {
-            
-            alert( "Please provide an Id." );
-            document.myForm.ownerid.focus() ;
-            return false;
-    }
+    
 
     return (true);
 
