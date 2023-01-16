@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<hlml>
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mall51- Admin portal</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
+    <body onload="auth()">
       <!--<header>Admin Portal</header>-->
       <section id ="Shop">
           <h2>New Shop</h2>
-          <form id ="forma" name="formy" onsubmit="return validation()" method ="POST" >
+          <form id ="forma" name="formy" >
               <div>
                   <label for ="fname">Shop Name:</label>
                   <input type ="text" id="shname" name="shname">
@@ -30,9 +30,9 @@
               <label for="Category">Category: </label>
                   <select name="Category" id="Category">
                       <option value="-1" selected>Shop Categories</option> <!--i need to colour this grey-->
-                      <option value="1">Fashion</option>
-                      <option value="2">Food</option>
-                      <option value="3">Grocery</option>
+                      <option value="Fashion">Fashion</option>
+                      <option value="Food">Food</option>
+                      <option value="Grocery">Grocery</option>
                   </select>
           </div>
           <div>
@@ -63,45 +63,30 @@
               <input type ="text" id="Password" name="Password">
              </div>
              
-            <input class="sub" type="submit" value="Save" name="get" onclick="submit()">
+            <input id="sub" type="submit" value="Save" name="get" onclick="validation()">
           </form>
       </section>
-      
-      <footer>
-
-      </footer>
-      <script src ="main.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.2/axios.min.js" integrity="sha512-QTnb9BQkG4fBYIt9JGvYmxPpd6TBeKp6lsUrtiVQsrJ9sb33Bn9s0wMQO9qVBFbPX3xHRAsBHvXlcsrnJjExjg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script>
-       
-        document.addEventListener('load', function(auth) { window.location.replace('/login.html' )})
-        function auth() {
-          let tokenCookie = document.cookie;
-
-          function getTokenFromCookie(name) {
-            let value = "; " + document.cookie;
-            let parts = value.split("; " + name + "=");
-            if (parts.length == 2) return parts.pop().split(";").shift();
-          }
-
-          let token = getTokenFromCookie("token");
-
-          axios.post('/auth/admin', token )
-          .then((res)=>{ 
-            if (res.data.status === null) {
-              console.log("no toek")
-              window.location.href = "/login.html"
-            }else{
-              console.log("admin")
-
-              (res.data.status === "ok")
-            }
-
-          })
-
-        }
-
-        
-      </script>
     </body>
-</hlml>
+    <script>
+      function auth() {
+        const baseURL = 'https://sore-narrow-seashore.glitch.me'
+        let token = localStorage.getItem("Token");
+
+        fetch(baseURL + "/auth/admin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({token}),
+        })
+        .then((response) => response.json())
+        .then((res)=>{
+          if (res.status === null) {
+            console.log("no toek")
+            // window.location.href = "login.html"
+          }
+        })
+      } 
+    </script>
+    <script src ="main.js"></script>
+</html>

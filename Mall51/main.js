@@ -51,9 +51,9 @@ function validation() {
 let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
 
 
-const form = document.getElementById("forma");
+const form = document.getElementById("sub");
 
-form.addEventListener("save", async (event)=>{
+form.addEventListener("click", async (event)=>{
     event.preventDefault();
     const ShopID= document.getElementById("nshop").value;
     const ShopName = document.getElementById("shname").value;
@@ -78,22 +78,21 @@ form.addEventListener("save", async (event)=>{
                 alert("Saved")
             }
         })
-    } catch (error) {
-        console.error(error);
-    }
 
-    try {
-        const response = await fetch(BASE_URL + "admin/userDetails",{
+        const response2 = await fetch(BASE_URL + "admin/userDetails",{
             method: "POST",
             body: JSON.stringify({ShopID, FirstName, LastName }),
             headers: {
                 "Content-Type": "application/json",
             }
-        });
-
-        if (!response.ok) {
-            throw new Error(response.statusText);
-        }
+        }).then((response)=> response.json())
+        .then((res)=>{
+            if (!res.status == 'Success'){
+                alert("Error");
+            }else{
+                alert("Saved")
+            }
+        })
     } catch (error) {
         console.error(error);
     }
