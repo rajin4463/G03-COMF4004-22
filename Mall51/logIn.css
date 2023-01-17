@@ -9,7 +9,7 @@
 }
 
 .inner-warpper:first-child {
-  margin-right: 20px;
+  margin-right: 50px;
 }
 
 
@@ -163,16 +163,21 @@ span.validate-tooltip {
 }
 
 .inner-warpper {
-  width: 320px;
+  width: 100px;
+  height:100px;
   background: #fff;
   margin: 20px auto;
-  min-height: 200px;
+  min-height: 300px;
   border: 1px solid #f3f3f3;
 }
 
 .wrapper .inner-warpper {
   padding: 50px 30px 60px;
   box-shadow: 1px 1.732px 10px 0px rgba(0, 0, 0, 0.063);
+}
+
+.wrapper {
+  padding: 20px 100px 100px 100px;
 }
 
 .wrapper .title {
