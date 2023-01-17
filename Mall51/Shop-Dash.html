@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="Shop-Dash.css">
     <title>DashBoard</title>
 </head>
-<body>
+<body onload="auth()">
     <div id="center">
         <div>
             <div class="headSec">
@@ -50,6 +50,27 @@
             </div>
         </div>
     </div>
-    <script src="shopDash.js"></script>
+    <!-- <script src="shopDash.js"></script> -->
+    <script>
+        function auth() {
+          const baseURL = 'https://sore-narrow-seashore.glitch.me'
+          let token = localStorage.getItem("Token");
+
+          fetch(baseURL + "/auth/shop", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({token}),
+          })
+          .then((response) => response.json())
+          .then((res)=>{
+            if (res.status === null) {
+              console.log("no toek")
+              window.location.href = "login.html"
+            }
+          })
+        } 
+    </script>
 </body>
 </html>
