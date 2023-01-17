@@ -37,7 +37,7 @@
 
                     <div class="input-class">
                         <label class="place-holder" for="tags">Tags</label>
-                        <input class="form-control" name="tags" id="tags" type="text">
+                        <div class="input-class"></div>
                         <span class="lightining"></span>
                     </div><br>
 
@@ -67,4 +67,24 @@
             </div>
         </div>
     </body>
+    <script>
+        function auth() {
+          const baseURL = 'https://sore-narrow-seashore.glitch.me'
+          let token = localStorage.getItem("Token");
+
+          fetch(baseURL + "/auth/shop", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({token}),
+          })
+          .then((response) => response.json())
+          .then((res)=>{
+            if (res.status === null) {
+            //   window.location.href = "login.html"
+            }
+          })
+        } 
+    </script>
 </html>
