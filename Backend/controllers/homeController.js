@@ -1,19 +1,20 @@
 const ShopDetails = require('../models/Shopdetails');
 const ShopImage = require('../models/shopImg');
 
-exports.shop_img_get = (req, res) => {
+exports.shop_img_get = async (req, res) => {
     // res.send('<body style = "background-color: rgba(0, 0, 0, 0.82); color:antiquewhite; padding:2%;"><h1> MALL51 Home Page</h1></body>');
+    let {imgID} = req.params
+    let numID = Number(imgID)
     try{
-        ShopImage.find({}, (error, item) => {
-            if(error){
-                console.log(error);
-                res.status(500).console.log('An error occured', error);
-            }
-            else{
-                res.send(item)
-            }
-        })
-    }catch(err){
+        const SHOP = await ShopImage.findOne({imageID: numID})
+        if(!SHOP == null || !SHOP == []){
+            res.send(SHOP)
+        }
+        else{
+            res.send({ status : "data not found"})
+        }
+    }
+    catch(err){
         console.log(err);
     }
 }
