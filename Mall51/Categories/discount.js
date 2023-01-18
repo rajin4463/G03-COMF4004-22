@@ -80,7 +80,7 @@ async function searchFunction(urlShop, urlCategory){
                 let divImage = document.createElement("div");
                 divImage.classList.add("image");
                 let img = document.createElement("img");
-                img.src = "./img/little_hearts.jpg";
+                img.src = "../img/little_hearts.jpg";
                 img.alt = "";
                 divImage.appendChild(img);
                 divCard.appendChild(divImage);
