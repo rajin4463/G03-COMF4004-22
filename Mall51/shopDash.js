@@ -45,7 +45,10 @@ const toBase64 = file => new Promise((reslove, reject)=>{
 save.addEventListener('click', async (e)=>{
     e.preventDefault()
     const fileInput = document.getElementById('image').files[0]
+    const discount = document.getElementById('discounts').checked;
     const tags = category
+
+    let state = true
 
     let result;
     async function main(){
@@ -65,5 +68,20 @@ save.addEventListener('click', async (e)=>{
         }
     })
     .then((response) => response.json())
-    .then((json) => console.log(json));
+    .then((json) => {
+        if(!json.status == "Success"){
+            state = false
+            console.log(state);
+        }
+    });
+
+    fetch(BASEURL+'shopdash/update/'+ShopID, {
+        method: "PATCH",
+        body: JSON.stringify({Category:tags, Discounts:discount}),
+        headers: {
+            "Content-Type": "application/json",
+        }
+    })
+    .then((response) => response.json())
+    .then((json) => console.log(json))
 })

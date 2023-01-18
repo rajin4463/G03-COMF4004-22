@@ -37,7 +37,7 @@ async function find(req, res){
 
 async function update(req, res){
     try{
-        const {ShopID, ShopName, Location, Category, Discounts} = req.body
+        const {ShopID} = req.params
         const update = await Shop.findOneAndUpdate({ShopID: ShopID}, req.body)
         res.send({ status : "data saved"})
     }

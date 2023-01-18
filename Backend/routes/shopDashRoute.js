@@ -18,7 +18,7 @@ catch(err){
 }
 
 try{
-    router.patch('/update/:id', shopCont.update);
+    router.patch('/update/:ShopID', shopCont.update);
 }
 catch(err){
     console.log(err);
