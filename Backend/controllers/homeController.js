@@ -30,10 +30,9 @@ exports.shop_details_get = (req, res) => {
         }
         else{
             for(let i = 0; i < details.length; i++){
-                ShopDetailsArray.push({ShopName: details[i].ShopName, ShopLocation: details[i].Location, Discount: details[i].Discounts})
+                ShopDetailsArray.push({ShopID:details[i].ShopID, ShopName: details[i].ShopName, ShopLocation: details[i].Location, Discount: details[i].Discounts, Category:details[i].Category})
             }
             res.json(ShopDetailsArray);
-            console.log(ShopDetailsArray);
             
         }
     })
@@ -51,10 +50,9 @@ exports.shop_search_get = (req, res) => {
         }
         else{
             for(let i = 0; i < result.length; i++){
-                Shops.push({ShopName: result[i].ShopName, ShopLocation: result[i].Location, Discount: result[i].Discounts});  
+                Shops.push({ShopName: result[i].ShopName, ShopLocation: result[i].Location, Discount: result[i].Discounts, Category: result[i].Category});
             }
             res.json(Shops);
-            console.log(Shops);
         }
     })
 }
