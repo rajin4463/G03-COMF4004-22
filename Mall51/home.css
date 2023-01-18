@@ -174,9 +174,9 @@ nav {
     text-decoration: none;
 }
 
-#card-display img {
+.image img {
     height: auto;
-    width: 300px;
+    width: 324px; /* Although I change the width it's not getting applied */
 }
 /**
 #card-display a {
@@ -205,8 +205,8 @@ nav {
 
 .item {
     background: var(--card-bg);
-    margin: auto;
-    height: 25em;
+    margin:  10px auto;
+    height: 20em;
     list-style: none;
     padding-bottom: 40px;
 

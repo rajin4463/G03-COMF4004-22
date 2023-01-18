@@ -15,13 +15,14 @@ function closeNav() {
 
 
 // Function to display shop details on the home page
-async function displayShopDetails(url, urlImg){
+async function displayShopDetails(url){
     const response = await fetch(url);
     let ShopDetails = await response.json();
-    const responseImg = await fetch(urlImg);
-    const img = await responseImg.json();
+    console.log(ShopDetails);
     let fragment = document.createDocumentFragment();
 for (let i = 0; i < ShopDetails.length; i++){
+    let responseImg = await fetch(BASE_URL + `home/img/${ShopDetails[i].ShopID}`)
+    let imageData = await responseImg.json();
     let li = document.createElement("li");
     li.classList.add("item");
 
@@ -31,8 +32,8 @@ for (let i = 0; i < ShopDetails.length; i++){
     let divImage = document.createElement("div");
     divImage.classList.add("image");
     let img = document.createElement("img");
-    img.src = "./img/little_hearts.jpg";
-    img.alt = "";
+    img.src = imageData.image;
+    img.alt = `${ShopDetails[i].ShopName} Image`;
     divImage.appendChild(img);
     divCard.appendChild(divImage);
 
@@ -52,7 +53,7 @@ for (let i = 0; i < ShopDetails.length; i++){
 cards.appendChild(fragment);
 
 }
-displayShopDetails(BASE_URL + "home", BASE_URL + "home/img");
+displayShopDetails(BASE_URL + "home");
 
 searchBar.addEventListener("keyup", function (event) {
     if (event.keyCode === 13){
@@ -70,6 +71,8 @@ async function searchFunction(urlShop, urlCategory){
         if(data){
             let fragment = document.createDocumentFragment();
             for (let i = 0; i < data.length; i++){
+                let responseImg = await fetch(BASE_URL + `home/img/${data[i].ShopID}`)
+                let imageData = await responseImg.json();
                 let li = document.createElement("li");
                 li.classList.add("item");
 
@@ -79,8 +82,8 @@ async function searchFunction(urlShop, urlCategory){
                 let divImage = document.createElement("div");
                 divImage.classList.add("image");
                 let img = document.createElement("img");
-                img.src = "./img/little_hearts.jpg";
-                img.alt = "";
+                img.src = imageData.image;
+                img.alt = `${data[i].ShopName} Image`;
                 divImage.appendChild(img);
                 divCard.appendChild(divImage);
 

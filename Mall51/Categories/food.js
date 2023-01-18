@@ -20,6 +20,8 @@ async function displayFoodCategory(url){
     for (let i = 0; i < food.length; i++){
         for (let j = 0; j < food[i].Category.length; j++){
             if (food[i].Category[j] == "Food"){
+                let responseImg = await fetch(BASE_URL + `home/img/${food[i].ShopID}`)
+                let imageData = await responseImg.json();
                 let li = document.createElement("li");
                 li.classList.add("item");
 
@@ -29,8 +31,8 @@ async function displayFoodCategory(url){
                 let divImage = document.createElement("div");
                 divImage.classList.add("image");
                 let img = document.createElement("img");
-                img.src = "../img/little_hearts.jpg";
-                img.alt = "";
+                img.src = imageData.image;
+                img.alt = `${food[i].ShopName} Image`;
                 divImage.appendChild(img);
                 divCard.appendChild(divImage);
 
@@ -72,6 +74,8 @@ async function searchFunction(urlShop, urlCategory){
         if(data){
             let fragment = document.createDocumentFragment();
             for (let i = 0; i < data.length; i++){
+                let responseImg = await fetch(BASE_URL + `home/img/${data[i].ShopID}`)
+                let imageData = await responseImg.json();
                 let li = document.createElement("li");
                 li.classList.add("item");
 
@@ -81,8 +85,8 @@ async function searchFunction(urlShop, urlCategory){
                 let divImage = document.createElement("div");
                 divImage.classList.add("image");
                 let img = document.createElement("img");
-                img.src = "../img/little_hearts.jpg";
-                img.alt = "";
+                img.src = imageData.image;
+                img.alt = `${data[i].ShopName} Image`;
                 divImage.appendChild(img);
                 divCard.appendChild(divImage);
 

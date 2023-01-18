@@ -19,6 +19,8 @@ async function displayDiscountCategory(url){
     let fragment = document.createDocumentFragment();
     for (let i = 0; i < discount.length; i++){
             if (discount[i].Discount == true){
+                let responseImg = await fetch(BASE_URL + `home/img/${discount[i].ShopID}`)
+                let imageData = await responseImg.json();
                 console.log(discount[i].ShopName);
                 let li = document.createElement("li");
                 li.classList.add("item");
@@ -29,8 +31,8 @@ async function displayDiscountCategory(url){
                 let divImage = document.createElement("div");
                 divImage.classList.add("image");
                 let img = document.createElement("img");
-                img.src = "../img/little_hearts.jpg";
-                img.alt = "";
+                img.src = imageData.image;
+                img.alt = `${discount[i].ShopName} Image`;
                 divImage.appendChild(img);
                 divCard.appendChild(divImage);
 
@@ -71,6 +73,8 @@ async function searchFunction(urlShop, urlCategory){
         if(data){
             let fragment = document.createDocumentFragment();
             for (let i = 0; i < data.length; i++){
+                let responseImg = await fetch(BASE_URL + `home/img/${data[i].ShopID}`)
+                let imageData = await responseImg.json();
                 let li = document.createElement("li");
                 li.classList.add("item");
 
@@ -80,8 +84,8 @@ async function searchFunction(urlShop, urlCategory){
                 let divImage = document.createElement("div");
                 divImage.classList.add("image");
                 let img = document.createElement("img");
-                img.src = "../img/little_hearts.jpg";
-                img.alt = "";
+                img.src = imageData.image;
+                img.alt = `${data[i].ShopName} Image`;
                 divImage.appendChild(img);
                 divCard.appendChild(divImage);
 
