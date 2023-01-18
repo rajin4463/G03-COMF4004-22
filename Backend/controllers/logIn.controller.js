@@ -30,14 +30,11 @@ async function AdminLogIn(req, res){
                     exp: Math.floor(Date.now() / 1000) + (60 * 60)
                 };                  
                 const accesToken = jwt.sign(payload, process.env.ADMIN_ACCESS_TOKEN)
-                res.cookie("token", accesToken, {
-                    secure: true,
-                    // maxAge: // in ms
-                })
                 //local storage 
                 res.send({
                     "ShopID": AD_searchID,
-                    "Role":"Admin"
+                    "Role":"Admin",
+                    "token": accesToken
                 })
         
             }else{
@@ -79,14 +76,11 @@ async function ShopManLogIn(req, res){
                     exp: Math.floor(Date.now() / 1000) + (60 * 60)
                 };   
                 const accesToken = jwt.sign(payload, process.env.MANAGER_ACCESS_TOKEN)
-                res.cookie("token", accesToken, {
-                    secure: true,
-                    // maxAge: // in ms
-                })
                 //local storage 
                 res.send({
                     "ShopID": SM_searchID,
-                    "Role":"Manager"
+                    "Role":"Manager",
+                    "token": accesToken
                 })
 
             }else{
