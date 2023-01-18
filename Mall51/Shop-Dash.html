@@ -2,12 +2,19 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="Shop-Dash.css">
-        <title>Dashboard</title>
+        <link rel="stylesheet" href="Shop-Dash.css" type="text/css">
+        <title>Shop Dashboard</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+        <link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
+        <link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
     </head>
-    <body>
+    <body >
         <div class="logo text-center">
-            <h5>Mall 51</h5>
+            <h5>Mall51</h5>
         </div>
         <div class="wrapper">
             <div class="inner-wrapper text-center">
@@ -15,16 +22,9 @@
 
                     <div class="input-class">
                         <label class="place-holder" for="shopName">Shop Name</label>
-                        <p>Shop name goes here</p>
+                        <h2 id="shopN">Shop name goes here </h2>
                         <span class="lightining"></span>
                     </div>
-
-                    <div class="input-class">
-                        <label class="place-holder" for="description">Description</label>
-                        <textarea rows="4" cols="50" name="description" id="description" type="text">Enter description here...</textarea>
-                        <span class="lightining"></span>
-                    </div>
-
                     <div class="input-class">
                         <label class="place-holder" for="productCats">Product categories</label>
                         <input class="form-control" name="productCats" id="productCats" type="text">
@@ -32,12 +32,12 @@
                     </div>
 
                     <div class="buttons">
-                        <button type="submit" id="save">Add</button>
+                        <button id="tagAdd">Add</button>
                     </div>
 
-                    <div class="input-class">
+                    <div class="input-class" id="tags">
                         <label class="place-holder" for="tags">Tags</label>
-                        <div class="input-class"></div>
+                        <div id="input-class" class="form-control"></div>
                         <span class="lightining"></span>
                     </div><br>
 
@@ -49,7 +49,7 @@
 
                     <div class="input-class">
                         <label class="place-holder" for="image">Add Images</label>
-                        <input class="form-control" type="file" id="image" name="image" accept="image/*">
+                        <input class="form-control" type="file" id="image" name="image">
                         <span class="lightining"></span>
                     </div>
 
@@ -67,6 +67,7 @@
             </div>
         </div>
     </body>
+    <script src="shopDash.js"></script>
     <script>
         function auth() {
           const baseURL = 'https://sore-narrow-seashore.glitch.me'
