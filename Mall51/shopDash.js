@@ -55,15 +55,13 @@ save.addEventListener('click', async (e)=>{
 
     const ID = localStorage.getItem('ShopID')
     let ShopID = Number(ID)
+    let ImgID = ShopID
+    let image = result
     fetch(BASEURL+'shopdash/add-img', {
-        method: 'POST',
-        body:JSON.stringify({
-            ImgID: ShopID,
-            img: result,
-            ShopID: ShopID
-        }),
+        method: "PATCH",
+        body: JSON.stringify({ShopID:ShopID, ImgID:ImgID, img:image}),
         headers: {
-            'Content-type': 'application/json;',
+            "Content-Type": "application/json",
         }
     })
     .then((response) => response.json())
