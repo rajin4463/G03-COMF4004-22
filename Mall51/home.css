@@ -197,6 +197,12 @@ nav {
     margin-top: 10px;
 }
 
+.cards-search {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    margin-top: 10px;
+}
+
 .item {
     background: var(--card-bg);
     margin: auto;
@@ -247,6 +253,13 @@ footer{
         
     }
 
+    .cards-search {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        padding-left: 5px;
+        
+    }
+
     #logo {
         font-size: 8px;
         padding-right: 2rem;
@@ -275,6 +288,12 @@ footer{
         
     }
 
+    .cards-search {
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        
+    }
+
     #logo {
         font-size: 10px;
         padding-right: 2rem;
@@ -298,6 +317,13 @@ footer{
     }
 
     .cards {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        padding-left: 10px;
+        
+    }
+
+    .cards-search {
         display: grid;
         grid-template-columns: repeat(2, auto);
         padding-left: 10px;
@@ -354,6 +380,12 @@ footer{
         padding-left: 5px;
     }
 
+    .cards-search {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+        padding-left: 5px;
+    }
+
 }
 
 
@@ -391,6 +423,11 @@ footer{
     }
 
     .cards {
+        display: grid;
+        grid-template-columns: repeat(4, auto);
+    }
+
+    .cards-search {
         display: grid;
         grid-template-columns: repeat(4, auto);
     }
