@@ -50,7 +50,7 @@ exports.shop_search_get = (req, res) => {
         }
         else{
             for(let i = 0; i < result.length; i++){
-                Shops.push({ShopName: result[i].ShopName, ShopLocation: result[i].Location, Discount: result[i].Discounts, Category: result[i].Category});
+                Shops.push({ShopID: result[i].ShopID ,ShopName: result[i].ShopName, ShopLocation: result[i].Location, Discount: result[i].Discounts, Category: result[i].Category});
             }
             res.json(Shops);
         }
