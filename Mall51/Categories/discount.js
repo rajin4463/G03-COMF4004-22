@@ -17,10 +17,11 @@ function closeNav() {
 async function displayDiscountCategory(url){
     const response = await fetch(url);
     let discount = await response.json();
+    console.log(discount);
     let fragment = document.createDocumentFragment();
     if (discount.length > 0){
         for (let i = 0; i < discount.length; i++){
-            if (discount[i].Discount == true){
+            if (discount[i].Discount == "true"){
                 let responseImg = await fetch(BASE_URL + `home/img/${discount[i].ShopID}`)
                 let imageData = await responseImg.json();
                 console.log(discount[i].ShopName);
