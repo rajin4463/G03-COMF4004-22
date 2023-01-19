@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser')
 const cors = require('cors');
 
 //database connection module/Controlers
@@ -23,6 +24,8 @@ app.use(cors({
     origin: '*',
     methods: ['POST', 'GET', 'PATCH']
 }));
+
+app.use(bodyParser.json({ limit: '50mb' }))
 
 const start = async () =>{
     try{
