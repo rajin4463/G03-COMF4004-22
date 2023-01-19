@@ -24,21 +24,24 @@
   $("#formvalidate1").validate({
     rules: {
       shopm_userName: {
-        required: true
+        required: true,
+        minlength: 4
         
       },
       shopm_userPassword: {
-        required: true
-        
+        required: true,
+        minlength: 4  
       }
     },
     messages: {
       shopm_userName: {
-        required: "Please enter your username."
+        required: "Please enter your username.",
+        minlength: "Please provide valid username."
         
       },
       shopm_userPassword: {
-        required: "Enter your password to Login."
+        required: "Enter your password to Login.",
+        minlength: "Please provide valid username."
         
       }
     }
@@ -49,21 +52,25 @@
   $("#formvalidate2").validate({
     rules: {
       admin_userName: {
-        required: true
-        
+        required: true,
+        minlength: 4
+ 
       },
       admin_userPassword: {
-        required: true
+        required: true,
+        minlength: 4
         
       }
     },
     messages: {
       admin_userName: {
-        required: "Please enter your username."
+        required: "Please enter your username.",
+        minlength: "Please provide valid username."
         
       },
       admin_userPassword: {
-        required: "Enter your password to Login."
+        required: "Enter your password to Login.",
+        minlength: "Please provide valid username."
         
       }
     }
