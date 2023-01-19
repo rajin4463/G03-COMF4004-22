@@ -3,6 +3,7 @@ BASE_URL = "https://sore-narrow-seashore.glitch.me/";
 let cards = document.querySelector('.cards');
 let error = document.querySelector('.error');
 let searchBar = document.getElementById('search');
+document.getElementById('loading').style.display = 'flex';
 
 // Functions for the hamburger menu
 function openNav() {
@@ -16,9 +17,11 @@ function closeNav() {
 async function displayDiscountCategory(url){
     const response = await fetch(url);
     let discount = await response.json();
+    console.log(discount);
     let fragment = document.createDocumentFragment();
-    for (let i = 0; i < discount.length; i++){
-            if (discount[i].Discount == true){
+    if (discount.length > 0){
+        for (let i = 0; i < discount.length; i++){
+            if (discount[i].Discount == "true"){
                 let responseImg = await fetch(BASE_URL + `home/img/${discount[i].ShopID}`)
                 let imageData = await responseImg.json();
                 console.log(discount[i].ShopName);
@@ -49,11 +52,14 @@ async function displayDiscountCategory(url){
                 li.appendChild(divCard);
                 fragment.appendChild(li);
             }
-            // else{
-            //     error.innerHTML = `<h1 class="errorMessage">No results...</h1>`;
-            // }
+        }
+        cards.appendChild(fragment);
+        document.getElementById('loading').style.display = 'none';
     }
-    cards.appendChild(fragment);
+    else{
+        error.innerHTML = "No results found";
+    }
+    
 }
 displayDiscountCategory(BASE_URL + "home");
 
@@ -66,6 +72,7 @@ searchBar.addEventListener("keyup", function (event) {
 })
 
 async function searchFunction(urlShop, urlCategory){
+    document.getElementById('loading').style.display = 'flex';
     cards.innerHTML = "";
     try{
         const response = await fetch(urlShop);
@@ -103,6 +110,7 @@ async function searchFunction(urlShop, urlCategory){
                 fragment.appendChild(li);
             }
             cards.appendChild(fragment);
+            document.getElementById('loading').style.display = 'none';
         }
         else{
             response = await fetch(urlCategory);
@@ -138,6 +146,7 @@ async function searchFunction(urlShop, urlCategory){
                     fragment.appendChild(li);
                 }
                 cards.appendChild(fragment);
+                document.getElementById('loading').style.display = 'none';
             }
             else{
                 error.innerHTML = `<h1 class="errorMessage">No results...</h1>`;
