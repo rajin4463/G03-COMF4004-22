@@ -1,17 +1,13 @@
 /*flex for dual login forms*/
-.wrapper{
-  display:flex;
+.wrapper {
+  text-align: center;
 }
 
 .inner-warpper {
-  flex:1;
-  border:2px white;
+  width: 48%;
+  display: inline-block;
+  margin: 0 auto; 
 }
-
-.inner-warpper:first-child {
-  margin-right: 50px;
-}
-
 
 body {
   background: #f2f2f2;
@@ -163,11 +159,10 @@ span.validate-tooltip {
 }
 
 .inner-warpper {
-  width: 100px;
-  height:100px;
+  width: 200px;
   background: #fff;
-  margin: 20px auto;
-  min-height: 300px;
+  margin: 50px auto;
+  min-height: 200px;
   border: 1px solid #f3f3f3;
 }
 
@@ -176,9 +171,6 @@ span.validate-tooltip {
   box-shadow: 1px 1.732px 10px 0px rgba(0, 0, 0, 0.063);
 }
 
-.wrapper {
-  padding: 50px 100px 100px 100px;
-}
 
 .wrapper .title {
   margin-top: 0;

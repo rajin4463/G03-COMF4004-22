@@ -24,22 +24,22 @@
   $("#formvalidate1").validate({
     rules: {
       shopm_userName: {
-        required: true,
-        minlength: 6
+        required: true
+        
       },
       shopm_userPassword: {
-        required: true,
-        minlength: 6
+        required: true
+        
       }
     },
     messages: {
       shopm_userName: {
-        required: "Please enter your username.",
-        minlength: "Please provide valid username."
+        required: "Please enter your username."
+        
       },
       shopm_userPassword: {
-        required: "Enter your password to Login.",
-        minlength: "Incorrect login or password."
+        required: "Enter your password to Login."
+        
       }
     }
   });
@@ -49,22 +49,22 @@
   $("#formvalidate2").validate({
     rules: {
       admin_userName: {
-        required: true,
-        minlength: 6
+        required: true
+        
       },
       admin_userPassword: {
-        required: true,
-        minlength: 6
+        required: true
+        
       }
     },
     messages: {
       admin_userName: {
-        required: "Please enter your username.",
-        minlength: "Please provide valid username."
+        required: "Please enter your username."
+        
       },
       admin_userPassword: {
-        required: "Enter your password to Login.",
-        minlength: "Incorrect login or password."
+        required: "Enter your password to Login."
+        
       }
     }
   });
