@@ -9,6 +9,10 @@
   margin: 0 auto; 
 }
 
+.inner-warpper:first-child{
+  margin-right: 50px;
+}
+
 body {
   background: #f2f2f2;
 }
