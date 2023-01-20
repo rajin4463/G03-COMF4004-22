@@ -1,6 +1,7 @@
 const ShopImg = require('../models/shopImg');
 const Shop = require('../models/Shopdetails');
 
+//add or updated image based on given shop ID
 async function add(req, res){
     const {ImgID, img, ShopID} = req.body;
     let numID = Number(ShopID)
@@ -17,6 +18,7 @@ async function add(req, res){
     }
 }
 
+//return shop data based on given shop ID
 async function find(req, res){
     let {id} = req.params
     let numID = Number(id)
@@ -34,7 +36,7 @@ async function find(req, res){
     }
 }
   
-
+//Update the shop data based on the given shop ID
 async function update(req, res){
     try{
         const {ShopID} = req.params

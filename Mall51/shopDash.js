@@ -1,3 +1,4 @@
+//API url
 const BASEURL = 'https://sore-narrow-seashore.glitch.me/'
 
 const name = document.getElementById('shopN');
@@ -6,6 +7,7 @@ const save = document.getElementById('save');
 
 let category;
 
+//on load display info of shop on webpage 
 window.addEventListener("load", function(){
     const ShopID = localStorage.getItem('ShopID')
     try{
@@ -20,6 +22,7 @@ window.addEventListener("load", function(){
     }
 });
 
+//function to add porduct categories to be saved
 tag.addEventListener('click', (e)=>{
     e.preventDefault()
     const vals = document.getElementById('productCats').value
@@ -42,6 +45,7 @@ const toBase64 = file => new Promise((reslove, reject)=>{
     reader.onerror = err => reject(err);
 })
 
+//main save function that saved data to the database
 save.addEventListener('click', async (e)=>{
     e.preventDefault()
     const fileInput = document.getElementById('image').files[0]
@@ -71,7 +75,6 @@ save.addEventListener('click', async (e)=>{
     .then((json) => {
         if(!json.status == "Success"){
             state = false
-            console.log(state);
         }
     });
 
@@ -83,5 +86,15 @@ save.addEventListener('click', async (e)=>{
         }
     })
     .then((response) => response.json())
-    .then((json) => console.log(json))
+    .then((json) => {
+        if(!json.status == "data saved"){
+            state = false
+        }
+
+        if(state == true){
+            alert("Data saved")
+        }else{
+            alert("Error! Data not saved")
+        }
+    })
 })

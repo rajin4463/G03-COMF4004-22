@@ -1,3 +1,4 @@
+//requirements 
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser')
@@ -25,8 +26,10 @@ app.use(cors({
     methods: ['POST', 'GET', 'PATCH']
 }));
 
+//use body Parser to increase size of request pakages
 app.use(bodyParser.json({ limit: '50mb' }))
 
+//function to initiate data base connection
 const start = async () =>{
     try{
         await connectDB(process.env.URI)
