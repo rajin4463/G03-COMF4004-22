@@ -98,7 +98,7 @@ let BASE_URL = "https://sore-narrow-seashore.glitch.me/";
 
 /////////////////////////////////////////////////////////////////////
 
-// attach a submit event listener to a form with the id "formvalidate1"
+// attach a submit event listener to a form "formvalidate1" (shop manager login)
 const form1 = document.getElementById("formvalidate1");
 form1.addEventListener("submit", (event) => {
   // prevent the default behavior of the form when it's submitted
@@ -140,7 +140,7 @@ form1.addEventListener("submit", (event) => {
 
 /////////////////////////////////////////////////////////////////////
 
-// attach a submit event listener to a form with the id "formvalidate2"
+// attach a submit event listener to form "formvalidate2" (admin login)
 const form2 = document.getElementById("formvalidate2");
 form2.addEventListener("submit", (event) => {
   event.preventDefault();
