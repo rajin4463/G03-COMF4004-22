@@ -17,7 +17,7 @@ async function AdminLogIn(req, res){
             admin_user = admin_user_collection;
         }
         catch{
-            return res.status(400).send("Invalid credentials");
+            return res.send({"status":"Invalid credentials"});
         }
         const admin_password = admin_user.Password;
         //check if password is correct 
@@ -38,10 +38,10 @@ async function AdminLogIn(req, res){
                 })
         
             }else{
-                return res.status(400).send("Invalid credentials");
+                return res.send({"status":"Invalid credentials"});
             } 
         }else{
-            return res.status(400).send("Invalid credentials");
+            return res.send({"status":"Invalid credentials"});
         }   
     }
     catch (err) {
@@ -63,7 +63,7 @@ async function ShopManLogIn(req, res){
             const shopman_user_collection = await Credentials.findOne({UserName:UserName});
             shopman_user = shopman_user_collection;
         }catch{
-            return res.status(400).send("Invalid credentials");
+            return res.send({"status":"Invalid credentials"});
         }
         const shopman_password = shopman_user.Password;
 
@@ -84,10 +84,10 @@ async function ShopManLogIn(req, res){
                 })
 
             }else{
-                return res.status(400).send("Invalid credentials");
+                return res.send({"status":"Invalid credentials"});
             }   
         }else{
-            return res.status(400).send("Invalid credentials");
+            return res.send({"status":"Invalid credentials"});
         }   
     }
     catch (err) {
