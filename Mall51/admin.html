@@ -88,7 +88,7 @@
         .then((response) => response.json())  
         .then((res)=>{
           if (res.status === null) {               //if the status property of the JSON object is null,invalid token (not an admin)
-            window.location.href = "login.html"    // redirected to the login page
+            window.location.href = "logIn.html"    // redirected to the login page
           }
         })
       } 
