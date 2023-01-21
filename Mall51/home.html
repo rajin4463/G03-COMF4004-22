@@ -17,6 +17,7 @@
 <body>
     <header>
         <nav>
+            <!-- Hamburger Menu -->
             <div id="hamburgerNav" class="hamNav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <a href="./Categories/fashion.html" class="fashion">Fashion</a>
@@ -25,6 +26,7 @@
                 <a href="./Categories/discount.html">Discount</a>
                 <a href="logIn.html" style="margin-top: 50%;">Login</a>
             </div>
+            <!-- Toggle Icon -->
             <div id="menuToggle">
                 <input type="checkbox" class="toggle" onclick="openNav()">
                 <span></span>
@@ -37,34 +39,11 @@
             </div>
         </nav>
     </header>
-    <!--
-    <div class="slideshow">
-        <div class="slide fade">
-            <img src="./img/redcharlie-LQK8R7wjv4w-unsplash.jpg" style="width: 100%; height: auto;">
-        </div>
-        <div class="slide fade">
-            <img src="./img/saud-edum-8jMZzQKduUE-unsplash.jpg" style="width: 100%; height: auto;">
-        </div>
-        <div class="slide fade">
-            <img src="./img/sebastien-gabriel--IMlv9Jlb24-unsplash.jpg" style="width: 100%; height: auto;">
-        </div>
-    </div>
-    <br>
-    <div style="text-align: center;">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
--->
-
+    <!-- Loading animation -->
 <div id="loading">
     <div class="loading-spinner"></div>
 </div>
-
-
-    <div class="error">
-        
-    </div>
+    <!-- Cards display -->
     <section id="card-display">
         <ul id="display" class="cards">
             <!-- 
@@ -77,69 +56,6 @@
                     <p>Location</p>
                 </div>
             </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-2</h2>
-                    <p>Location</p>
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-3</h2>
-                    <p>Location</p>
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-4</h2>
-                    <p>Location</p>
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-5</h2>
-                    <p>Location</p>
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-6</h2>
-                    <p>Location</p>
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-7</h2>
-                    <p>Location</p>
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-8</h2>
-                    <p>Location</p>
-                </div>
-            </li>
         -->
         </ul>
     </section>
@@ -149,25 +65,6 @@
     </footer>
 
     <script src="./main/home.js">
-        // let slideIndex = 0;
-        // showSlides();
-
-        // function showSlides() {
-        //     let i;
-        //     let slides = document.getElementsByClassName("slide");
-        //     let dots = document.getElementsByClassName("dot");
-        //     for (i = 0; i < slides.length; i++) {
-        //         slides[i].style.display = "none";  
-        //     }
-        //     slideIndex++;
-        //     if (slideIndex > slides.length) {slideIndex = 1}    
-        //     for (i = 0; i < dots.length; i++) {
-        //         dots[i].className = dots[i].className.replace(" active", "");
-        //     }
-        //     slides[slideIndex-1].style.display = "block";  
-        //     dots[slideIndex-1].className += " active";
-        //     setTimeout(showSlides, 2000); // Change image every 2 seconds
-        // }
     </script>
     
 </body>
