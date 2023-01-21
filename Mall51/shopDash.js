@@ -9,6 +9,7 @@ let category;
 
 //on load display info of shop on webpage 
 window.addEventListener("load", function(){
+    document.getElementById('dashboard').reset()
     const ShopID = localStorage.getItem('ShopID')
     try{
         fetch(BASEURL+'shopdash/get/'+ShopID)
@@ -16,6 +17,11 @@ window.addEventListener("load", function(){
         .then((data) => {
             name.innerText = data.ShopName
             category = data.Category
+            if(data.Discounts == "true"){
+                document.getElementById('discounts').checked = true;
+            }else if(data.Discounts == "false"){
+                document.getElementById('discounts').checked = false;
+            }
         })
     }catch(err){
         console.log(err);
