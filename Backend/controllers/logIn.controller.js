@@ -4,6 +4,7 @@ const Credentials = require('../models/credentials');
 
 //ADMIN LOGIN 
 async function AdminLogIn(req, res){
+  let admin_password
     try {
         const {UserName, Password} = req.body;
         //if username or password is null 
@@ -19,7 +20,12 @@ async function AdminLogIn(req, res){
         catch{
             return res.send({"status":"Invalid credentials"});
         }
-        const admin_password = admin_user.Password;
+      try{
+        admin_password = admin_user.Password;
+      }
+      catch{
+        return res.send({"status":"Invalid credentials"});
+      }
         //check if password is correct 
         if(admin_user && (Password == admin_password )){
             const AD_searchID = admin_user.ShopID;
@@ -52,6 +58,7 @@ async function AdminLogIn(req, res){
 
 //SHOP MANAGER LOGIN
 async function ShopManLogIn(req, res){
+  let shopman_password
     try {
         const {UserName, Password} = req.body;
 
@@ -65,7 +72,12 @@ async function ShopManLogIn(req, res){
         }catch{
             return res.send({"status":"Invalid credentials"});
         }
-        const shopman_password = shopman_user.Password;
+      try{  
+      shopman_password = shopman_user.Password;
+      }
+      catch{
+        return res.send({"status":"Invalid credentials"});
+      }
 
         if(shopman_user && (Password == shopman_password )) {
             const SM_searchID = shopman_user.ShopID;
