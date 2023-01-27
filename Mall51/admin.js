@@ -33,13 +33,13 @@ function validation() {
     }
 
     let username = document.forms["formy"]["UserName"].value;
-    if (username.length <=4){
+    if (username.length <=3){
         alert("User Name must be 4 or more characters long");
         return false;
     }
 
     let password = document.forms["formy"]["Password"].value;
-    if (password.length <=4){
+    if (password.length <=3){
         alert("Password must be 4 or more characters long");
         return false;
     }
