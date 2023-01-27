@@ -32,15 +32,15 @@ function validation() {
         return false;
     }
 
-    let v = document.forms["formy"]["UserName"].value;
-    if (v == ""){
-        alert("Username must be filled out");
+    let username = document.forms["formy"]["UserName"].value;
+    if (username.length <=4){
+        alert("User Name must be 4 or more characters long");
         return false;
     }
 
-    let r = document.forms["formy"]["Password"].value;
-    if (r == ""){
-        alert("Password must be filled out");
+    let password = document.forms["formy"]["Password"].value;
+    if (password.length <=4){
+        alert("Password must be 4 or more characters long");
         return false;
     }
 
