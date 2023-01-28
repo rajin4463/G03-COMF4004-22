@@ -94,7 +94,7 @@ async function searchFunction(urlShop, urlCategory){
                 let img = document.createElement("img");
                 if(!imageData.image==''){
                     img.src = imageData.image;
-                    img.alt = `${ShopDetails[i].ShopName} Image`;
+                    img.alt = `${data[i].ShopName} Image`;
                 }else{
                     let responseImg = await fetch(BASE_URL + `home/img/9999`)
                     let imageData = await responseImg.json();
