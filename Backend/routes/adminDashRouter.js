@@ -17,4 +17,11 @@ catch(err){
     console.log(err);
 }
 
+try{
+    router.post('/deleteShop', admincontroller.deleteShop);
+}
+catch(err){
+    console.log(err);
+}
+
 module.exports = router;

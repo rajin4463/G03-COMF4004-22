@@ -1,6 +1,7 @@
 const cred = require('../models/credentials');  // required models
 const User = require('../models/userDetails');
 const ShopDe = require('../models/Shopdetails');
+const shopImg = require('../models/shopImg');
 
 //user details & user credentials store function
 async function usrDetails(req, res){   // takes both request and response
@@ -31,4 +32,28 @@ async function shopDetails(req, res){   // takes both request and response
 
 }
 
-module.exports = {usrDetails, shopDetails};  // eports both the functions 
+//delete shop function
+async function deleteShop(req, res){
+    const {ShopID} = req.body;
+    let ID = Number(ShopID)
+    try{
+        // Delete first document
+        ShopDe.findOneAndDelete({ShopID:ID}, (err, doc) => { //delete data in shop collection
+            if (!doc) return res.send({status: "Failed"});
+
+            cred.findOneAndDelete({ShopID:ID}, (err, doc) => { //delete data in credentials collction
+                if (!doc) return res.send({status: "Failed"});
+
+                shopImg.findOneAndDelete({ShopID:ID}, (err, doc) => { //delete data in shop images collection
+                    // if (!doc) return res.send({status: "Failed"});
+                    res.send({status: "Success"});
+                });
+            });
+        });    
+    }
+    catch(err){
+        console.log(err);
+        res.send({status: "Error!"})
+    }
+}
+module.exports = {usrDetails, shopDetails, deleteShop};  // eports both the functions 
