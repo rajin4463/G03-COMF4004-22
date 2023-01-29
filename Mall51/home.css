@@ -19,6 +19,7 @@
 body {
     margin: 0;
     background: var(--body-color);
+    font-family: 'Times New Roman', Times, serif;
 }
 /** Navigation Bar */
 nav {
