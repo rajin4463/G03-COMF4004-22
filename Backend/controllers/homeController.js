@@ -44,7 +44,7 @@ exports.shop_search_get = (req, res) => {
     const searchType = req.params[0];
     const searchValue = req.query[searchType];
     let Shops = [];
-    ShopDetails.find({$or:[{ShopName: searchValue},{Category: searchValue}]}, function(error, result){
+    ShopDetails.find({$or:[{ShopName: {$regex: new RegExp('^'+searchValue+'.*','i')}},{Category: {$regex: new RegExp('^'+searchValue+'.*','i')}}]}, function(error, result){
         if(error){
             console.log(error);
         }
