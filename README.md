@@ -2,22 +2,20 @@
 
 ## Team Leader 
 - Name : Rajin Sandira
-- Email : ***REMOVED***
-- Contact : ***REMOVED***
+- Email : 
+- Contact : 
 
 ## Team Member 
 - Name: Sanduni Srikantha
-- Email: ***REMOVED***
-- Contact: ***REMOVED***
+- Email: 
+- Contact: 
 
 ## Member 2
 - Name: Raznan Ahamed
-- Email: ***REMOVED***
-- Contact: ***REMOVED***
+- Email: 
+- Contact: 
 
 ## Member 3
 - Name : Hirundya Gunasekara
-- Email : ***REMOVED***
-- Contact : ***REMOVED***
-
-
+- Email : 
+- Contact : 
