@@ -6,52 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="home.css">
     <title>Mall 51 | Home page</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <nav>
+            <!-- Hamburger Menu -->
             <div id="hamburgerNav" class="hamNav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">Category-1</a>
-                <a href="#">Category-2</a>
-                <a href="#">Category-3</a>
-                <a href="#">Category-4</a>
-                <a href="#">Category-5</a>
+                <a href="./Categories/fashion.html" class="fashion">Fashion</a>
+                <a href="./Categories/grocery.html">Grocery</a>
+                <a href="./Categories/food.html">Food</a>
+                <a href="./Categories/discount.html">Discount</a>
                 <a href="logIn.html" style="margin-top: 50%;">Login</a>
             </div>
+            <!-- Toggle Icon -->
             <div id="menuToggle">
                 <input type="checkbox" class="toggle" onclick="openNav()">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <div id="logo"><h1>Mall 51</h1></div>
+            <div id="logo"><h1><a href="home.html">Mall 51</a></h1></div>
             <div class="search-bar">
-                <input type="text" placeholder="Search here">
+                <input type="text" placeholder="Search here" id="search">
             </div>
         </nav>
     </header>
-    <!--
-    <div class="slideshow">
-        <div class="slide fade">
-            <img src="./img/redcharlie-LQK8R7wjv4w-unsplash.jpg" style="width: 100%; height: auto;">
-        </div>
-        <div class="slide fade">
-            <img src="./img/saud-edum-8jMZzQKduUE-unsplash.jpg" style="width: 100%; height: auto;">
-        </div>
-        <div class="slide fade">
-            <img src="./img/sebastien-gabriel--IMlv9Jlb24-unsplash.jpg" style="width: 100%; height: auto;">
-        </div>
-    </div>
-    <br>
-    <div style="text-align: center;">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
--->
+    <!-- Loading animation -->
+<div id="loading">
+    <div class="loading-spinner"></div>
+</div>
+    <!-- Cards display -->
     <section id="card-display">
-        <ul class="cards">
+        <ul id="display" class="cards">
+            <!-- 
             <li class="item">
                 <div class="card">
                     <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
@@ -59,114 +57,19 @@
                 <div class="content">
                     <h2>Name-1</h2>
                     <p>Location</p>
-                    <!--<a href="#">View</a>-->
                 </div>
             </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-2</h2>
-                    <p>Location</p>
-                    <!--<a href="#">View</a>-->
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-3</h2>
-                    <p>Location</p>
-                    <!--<a href="#">View</a>-->
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-4</h2>
-                    <p>Location</p>
-                    <!--<a href="#">View</a>-->
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-5</h2>
-                    <p>Location</p>
-                    <!--<a href="#">View</a>-->
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-6</h2>
-                    <p>Location</p>
-                    <!--<a href="#">View</a>-->
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-7</h2>
-                    <p>Location</p>
-                    <!--<a href="#">View</a>-->
-                </div>
-            </li>
-            <li class="item">
-                <div class="card">
-                    <div class="image"><img src="./img/little_hearts.jpg" alt=""></div>
-                </div>
-                <div class="content">
-                    <h2>Name-8</h2>
-                    <p>Location</p>
-                    <!--<a href="#">View</a>-->
-                </div>
-            </li>
+        -->
         </ul>
     </section>
+    <center><h1 id="notfoundhead">404</h1>
+    <p id="notfoundtext">Search was not found try something else!</p></center>
 
     <footer>
         <p>Copyright &copy; 2022</p>
     </footer>
-
-    <script>
-        function openNav() {
-            document.getElementById("hamburgerNav").style.width = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("hamburgerNav").style.width = "0";
-        }
-
-        let slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            let i;
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("dot");
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";  
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {slideIndex = 1}    
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex-1].style.display = "block";  
-            dots[slideIndex-1].className += " active";
-            setTimeout(showSlides, 2000); // Change image every 2 seconds
-        }
+    
+    <script src="./main/home.js">
     </script>
     
 </body>

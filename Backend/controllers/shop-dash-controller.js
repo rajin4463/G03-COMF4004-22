@@ -1,15 +1,15 @@
-const ShopMan = require('../models/shopImg');
-const Shop = require('../models/shop');
+const ShopImg = require('../models/shopImg');
+const Shop = require('../models/Shopdetails');
 
+//add or updated image based on given shop ID
 async function add(req, res){
-    const {imgID, img, shID} = req.body
-    const addres = new ShopMan({
-        imageID: imgID,
-        image: img,
-        ShopID: shID
-    });
+    const {ImgID, img, ShopID} = req.body;
+    let numID = Number(ShopID)
     try{
-        await addres.save();
+        const update = await ShopImg.findOneAndUpdate({ShopID: numID}, {
+            imageID:ImgID,
+            image: img
+        },  { upsert: true, new: true }, )
         res.send({status: "Success!"})
     }
     catch(err){
@@ -18,11 +18,12 @@ async function add(req, res){
     }
 }
 
+//return shop data based on given shop ID
 async function find(req, res){
     let {id} = req.params
     let numID = Number(id)
     try{
-        const SHOP = await Shop.findOne({shopID: numID})
+        const SHOP = await Shop.findOne({ShopID: numID})
         if(!SHOP == null || !SHOP == []){
             res.send(SHOP)
         }
@@ -35,14 +36,11 @@ async function find(req, res){
     }
 }
   
-
+//Update the shop data based on the given shop ID
 async function update(req, res){
-    let {id} = req.params
-    let numID = Number(id)
     try{
-        const doc = await Shop.findOne({shopID: numID});
-        Object.assign(doc, req.body);
-        doc.save();
+        const {ShopID} = req.params
+        const update = await Shop.findOneAndUpdate({ShopID: ShopID}, req.body)
         res.send({ status : "data saved"})
     }
     catch(err){
@@ -50,5 +48,4 @@ async function update(req, res){
         res.send({ status : "data not saved"})
     }
 }
-
 module.exports = {add, find, update}

@@ -1,190 +1,114 @@
-body{
+/*Global styles*/
+body {
+    font-family: Arial, sans-serif;
     background-color: #D6E4E5;
-}
-label{
-    color: #D6E4E5;
-    font-size: 25px;
-}
-textarea{
-    border-radius: 8px;
-}
-#center{ /* center main div area */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding: 2%; */
-}
-#formCent{
-    padding: 2%;
-    text-align: center;
-}
-.headSec{
-    display: grid;
-    grid-template-columns: auto 73%;
-    grid-template-rows: auto auto;
-} 
-.headSec > div {
-    /* background-color: rgba(255, 255, 255, 0.8); */
-    padding: 20px 0px;
+    /*Remove default padding and margin*/
+    padding: 0;
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
   }
-#heading{
-    font-weight: bold;
-    font-size: 30px;
-    color:#497174;
-    text-align: right;
-}
-/* .menu{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    cursor: pointer;
-    transition: all .5s ease-in-out;
-}
-.menu_btn{
-    width: 50px;
-    height: 6px;
-    background: #497174;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(235, 100, 64, .2);
-    transition: all .5s ease-in-out;
-}
-.menu_btn::before,
-.menu_btn::after {
-    content:'';
-    position: absolute;
-    width: 50px;
-    height: 6px;
-    background: #497174;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(235, 100, 64, .2);
-    transition: all .5s ease-in-out;
-}
-.menu_btn::before{
-    transform: translateY(-16px);
-}
-.menu_btn::after{
-    transform: translateY(16px);
-}
-/* Menu button animation *//*
-.menu.open .menu_btn{
-    transform: translateX(-50px);
-    background: transparent;
-    box-shadow: none;
-}
-.menu.open .menu_btn::before{
-    transform: rotate(45deg) translate(35px, -35px);
-}
-.menu.open .menu_btn::after{
-    transform: rotate(-45deg) translate(35px, 35px);
-} */
-#background{ /*center div color*/
-    background-color: #344f51;
-    border-radius: 10px;
-    width: 350px;
-    height: auto;
-    padding-bottom: 3%;
-    box-shadow: black 2px 2px 2px 2px;
-    transition: all .5s ease-in-out;
-}
-#name{
-    width: 250px;
-    height: 40px;
-    transition: all .5s ease-in-out;
-}
-#description{
-    background-color: #D6E4E5;
-    width: 250px;
-    height: 180px;
-    border-radius: 8px;
-    transition: all .5s ease-in-out;
-}
-#tags{
-    background-color: #D6E4E5;
-    width: 250px;
-    height: 60px;
-    transition: all .5s ease-in-out;
-}
-#tag_add{
-    background-color: #EB6440; 
-    border: none;
-    border-radius: 10px;
-    color: white;
-    padding: 10px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition: all .5s ease-in-out;
-}
-#product_catogories{
-    border-style:solid;
-    border-radius: 10px;
-    border-color: #EFF5F5;
-    border-width: 2.5px;
-    width: 300px;
-    margin: 0 auto;
-    transition: all .5s ease-in-out;
-}
-/* center placeholders in textarear */
-::-webkit-input-placeholder {
-    text-align: center;
-}
-:-moz-placeholder {
-    /* Firefox 18- */
-    text-align: center;
-}
-::-moz-placeholder {
+  
+  
+  /*Logo styles*/
+  .logo h5 {
     color: #497174;
-    /* Firefox 19+ */
-    text-align: center;
-}
-:-ms-input-placeholder {
-    text-align: center;
-}
-#subButtons{
-    text-align: right;
-}
-#save, #cancle{
-    margin-right: 4%;
-    background-color: #EB6440; 
-    width: 100px;
+    font-size: 36px;
+    margin-top: 50px;
+    text-align: right; 
+    padding-right: 180px; /*Add a right padding to separate the logo from other elements*/
+  }
+  
+  
+  /*Form styles*/
+  form {
+    background-color: #ffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #ccc;
+    margin: 50px auto; /*Center the form on the page*/
+    max-width: 600px;
+  }
+  
+  /*Input styles*/
+  .input-class {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  input[type="checkbox"] {
+    width: auto;
+  }
+  
+  
+  /*Placeholder styles*/
+  .place-holder {
+    font-weight: bold; 
+    color:black;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out; /*Add a transition effect when the input is focused*/
+    padding: 10px;
+  }
+  
+  
+  /*Input styles*/
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #D6E4E5; 
+    border-radius: 5px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out; /*Add a transition effect when the input is focused*/
+    background-color: #D6E4E5;
+  }
+  /*Change the border color when the input is focused*/
+  .form-control:focus {
+    outline: none;
+    border: 2px solid #497174;
+  }
+  
+  /*Textarea styles*/
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #D6E4E5;
+    border-radius: 5px;
+    font-size: 18px;
+    resize: none; /*Disable textarea resizing*/
+    transition: all 0.3s ease-in-out;
+    background-color: #D6E4E5;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border: 2px solid #497174;
+  }
+  /*Change background color when button is hovered over*/
+  button:hover {
+    background-color: #5e8e92;
+  }
+  
+  /*Button styles*/
+  .buttons {
+    display: flex;
+    justify-content: flex-end; /*Use flex layout to align the buttons to the right*/
+    margin-top: 30px; /*Add top margin to separate the buttons from other elements*/
+  }
+  
+  button {
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    color: white;
-    padding: 10px 22px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    box-shadow: black 2px 2px 2px 2px;
-}
-@media all and (min-width: 968px) {
-    #background{
-        width: 550px;
-        transition: all .5s ease-in-out;
-    }
-    #formCent{
-        text-align: left;
-    }
-    #tags{
-        width: 500px;
-        height: 40px;
-        transition: all .5s ease-in-out;
-    }
-    #tag_add{
-        text-align: center;
-    }
-    #description{
-        width: 500px;
-        height: 60px;
-        transition: all .5s ease-in-out;
-    }
-    #product_catogories{
-        width: 500px;
-        height: auto;
-        margin: 0 0;
-        transition: all .5s ease-in-out;
-    }
-}
+    font-size: 18px;
+    background-color: #497174;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out; /*Add a transition effect when the button is hovered over*/
+    margin: 0 10px; /*Add margin to separate the buttons*/
+  }
+
+  /*hide the tags element*/
+  #tags{
+    display: none;
+  }
+  
+  

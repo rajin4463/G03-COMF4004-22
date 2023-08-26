@@ -1,19 +1,35 @@
+//requirements 
 require('dotenv').config();
 const express = require('express');
+const bodyParser = require('body-parser')
 const cors = require('cors');
-const bodyPraser = require('body-parser');
+
+//database connection module/Controlers
 const connectDB = require('./dbconnect');
+
+//modules/Controllers
 const ShopDashRoutes = require('./routes/shopDashRoute');
+const HomeDashRoutes = require('./routes/homeRouter');
+const AdminDashRoutes = require('./routes/adminDashRouter');
+const LoginDashRoutes = require('./routes/loginDashRoute');
+const AuthRoute = require('./routes/authRoute');
+
+//creating a new instance of express
 const app = express();
 
-const PORT = 3000
+//defining PORT variable
+const PORT = process.env.PORT
 
-//use CORS 
+//set CORS 
 app.use(cors({
     origin: '*',
     methods: ['POST', 'GET', 'PATCH']
 }));
 
+//use body Parser to increase size of request pakages
+app.use(bodyParser.json({ limit: '50mb' }))
+
+//function to initiate data base connection
 const start = async () =>{
     try{
         await connectDB(process.env.URI)
@@ -27,17 +43,22 @@ const start = async () =>{
 start();
 
 console.log('Server starting.....');
+
 //listen on PORT
 app.listen(PORT)
 
-//body-praser used for post requests
-app.use(bodyPraser.urlencoded({extended: false}));
-app.use(bodyPraser.json());
+//body-praser used for post requests filtering
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
-//Routes
+//API Routes
 app.use('/shopdash', ShopDashRoutes);
+app.use('/home', HomeDashRoutes);
+app.use('/admin', AdminDashRoutes);
+app.use('/login', LoginDashRoutes);
+app.use('/auth', AuthRoute);
 
-//default landing page
+//default route/main landing page
 app.get('/', (request, response) => {
     response.send('<body style = "background-color: rgba(0, 0, 0, 0.82); color:antiquewhite; padding:2%;"><h1> MALL51 API endpoint</h1></body>')
 });
